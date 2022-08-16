@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Package;
 
 
 class PackageController extends Controller
@@ -36,7 +37,25 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->input();;
+        $request->validate([
+            'name' => 'required',
+            'mb' => 'required|numeric',
+            'tk' => 'required|numeric'
+        ]);
+        
+        // Insert Data
+        $package = new Package;
+        $package->title = $request->name;
+        $package->mb = $request->mb;
+        $package->tk = $request->tk;
+        $package->description = implode("||",$request->description);
+        if($package->save()){
+            return back()->with('success','New Package Register Success');
+        }else{
+            return back()->with('fail','Something went to wrong,try again later');
+        }
+
+        //return $request->input();;
     }
 
     /**
