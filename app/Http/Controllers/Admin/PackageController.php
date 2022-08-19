@@ -54,8 +54,6 @@ class PackageController extends Controller
         }else{
             return back()->with('fail','Something went to wrong,try again later');
         }
-
-        //return $request->input();;
     }
 
     /**

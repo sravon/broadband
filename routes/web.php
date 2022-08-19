@@ -25,6 +25,8 @@ Route::get('/', function () {
 // Route::get('/auth/login',[AdminController::class, 'login'])->name('admin.login');
  ;
 Route::post('/auth/check',[AdminController::class, 'check'])->name('admin.check');
+Route::view('/package','guest.package')->name('guest.package');
+Route::get('/package/data', [App\Http\Controllers\Guest\PackageController::class, 'viewData']);
 
 // Auth::routes();
 
@@ -44,5 +46,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/logout',[App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
 		Route::view('/package','admin.pages.package')->name('admin.package');
 		Route::post('/package/register',[App\Http\Controllers\Admin\PackageController::class, 'store'])->name('package.register');
+		Route::view('/coverage','admin.pages.coverage')->name('admin.coverage');
+		Route::post('/coverage/register',[App\Http\Controllers\Admin\CoverageController::class, 'store'])->name('coverage.register');
 	});
 });
