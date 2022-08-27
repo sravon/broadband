@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Package;
+use App\Models\Contact;
+use Illuminate\Http\Request;
 
-
-class PackageController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $packages = Package::all();
-        return view('admin.pages.package',['packages' => $packages]);
-        //return view('guest.package',compact('packages'));
+    public function index()
+    {
+        $contact = Contact::all();
+        return view('admin.pages.contact',['contacts' => $contact]);
     }
 
     /**
@@ -38,23 +37,7 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'mb' => 'required|numeric',
-            'tk' => 'required|numeric'
-        ]);
-        
-        // Insert Data
-        $package = new Package;
-        $package->title = $request->name;
-        $package->mb = $request->mb;
-        $package->tk = $request->tk;
-        $package->description = implode("||",$request->description);
-        if($package->save()){
-            return back()->with('success','New Package Register Success');
-        }else{
-            return back()->with('fail','Something went to wrong,try again later');
-        }
+        //
     }
 
     /**

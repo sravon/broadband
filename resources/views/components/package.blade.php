@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 mb-3">
     <div class="card text-center">
       <div class="card-header">
         <h4>{{ $title }}</h4>
@@ -11,11 +11,11 @@
         @php
             $des_array = explode("||",$des);
         @endphp
-        @foreach ($des_array as $item)
-            <p class="card-text"><span class="text-success h4"><i class="fa fa-check" aria-hidden="true"></i></span> 2 AM-8 PM - 20 Mbps.</p>
-        @endforeach
-        <p class="card-text"><span class="text-success h4"><i class="fa fa-check" aria-hidden="true"></i></span> 2 AM-8 PM - 20 Mbps.</p>
-        <p class="card-text"><span class="text-success h4"><i class="fa fa-check" aria-hidden="true"></i></span> 2 4K Youtube and Facebook Stream.</p>
+        <div class="text-start w-75 mx-auto">
+          @foreach ($des_array as $item)
+            <p class="card-text text-right"><span class="text-success h4"><i class="fa fa-check" aria-hidden="true"></i></span>{{ $item }}</p>
+          @endforeach
+        </div>
       </div>
       <div class="card-footer text-muted">
         <a href="#" class="btn btn-primary">Buy Now</a>

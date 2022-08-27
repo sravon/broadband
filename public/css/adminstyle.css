@@ -48,12 +48,13 @@ a,a:hover,a:fcus{
 	color: #fff;padding: 10px;
 }
 #sidebar ul li a{
-	padding: 10px;
+	padding: 20px;
 	font-size: 1.1em;
 	display: block;
-	text-align: center;
+	text-align: left;
 	border-bottom: 2px solid #cccc;
 	color: #fff;
+	text-decoration: none;
 }
 a i{
 	padding: 5px;
@@ -74,7 +75,6 @@ a i{
 	color: #7385D5;
 	background: #fff;
 	text-decoration: none;
-	text-align: center;
 }
 a[data-toggle="collapse"]{
 	position: relative;

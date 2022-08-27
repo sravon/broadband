@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Package;
+use App\Models\Admin;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-
-class PackageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $packages = Package::all();
-        return view('admin.pages.package',['packages' => $packages]);
-        //return view('guest.package',compact('packages'));
+    public function index()
+    {
+        $admins = Admin::all();
+        return view('admin.pages.users',['admins' => $admins]);
     }
 
     /**
@@ -38,23 +38,7 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'mb' => 'required|numeric',
-            'tk' => 'required|numeric'
-        ]);
-        
-        // Insert Data
-        $package = new Package;
-        $package->title = $request->name;
-        $package->mb = $request->mb;
-        $package->tk = $request->tk;
-        $package->description = implode("||",$request->description);
-        if($package->save()){
-            return back()->with('success','New Package Register Success');
-        }else{
-            return back()->with('fail','Something went to wrong,try again later');
-        }
+        //
     }
 
     /**
@@ -88,7 +72,20 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'role' => 'required'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        } 
+        $district = Admin::find($request->id);
+        $district->role = $request->role;
+        if($district->save()){
+            return back()->with('successed','Role update successfull');
+        }else{
+            return back()->with('fail','Query Failed');
+        }
     }
 
     /**
@@ -99,6 +96,12 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dlt = Admin::find($id);
+        $rst = $dlt->delete();
+        if($rst){
+            return response( "Delete Successfull" , 200);
+        }
     }
+
+
 }

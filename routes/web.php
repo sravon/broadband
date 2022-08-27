@@ -25,8 +25,8 @@ Route::get('/', function () {
 // Route::get('/auth/login',[AdminController::class, 'login'])->name('admin.login');
  ;
 Route::post('/auth/check',[AdminController::class, 'check'])->name('admin.check');
-Route::view('/package','guest.package')->name('guest.package');
-Route::get('/package/data', [App\Http\Controllers\Guest\PackageController::class, 'viewData']);
+Route::get('/package',[App\Http\Controllers\Guest\PackageController::class, 'viewData'])->name('guest.package');
+
 
 // Auth::routes();
 
@@ -46,7 +46,17 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/logout',[App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
 		Route::view('/package','admin.pages.package')->name('admin.package');
 		Route::post('/package/register',[App\Http\Controllers\Admin\PackageController::class, 'store'])->name('package.register');
-		Route::view('/coverage','admin.pages.coverage')->name('admin.coverage');
+		//Route::view('/coverage','admin.pages.coverage')->name('admin.coverage');
+		Route::get('/coverage',[App\Http\Controllers\Admin\CoverageController::class, 'index'])->name('admin.coverage');
 		Route::post('/coverage/register',[App\Http\Controllers\Admin\CoverageController::class, 'store'])->name('coverage.register');
+		Route::post('/coverage/update',[App\Http\Controllers\Admin\CoverageController::class, 'edit'])->name('coverage.update');
+		Route::post('/coverage/delete',[App\Http\Controllers\Admin\CoverageController::class, 'destroy'])->name('coverage.delete');
+		Route::resource('/district',App\Http\Controllers\Admin\DistrictController::class);
+		Route::resource('/bank',App\Http\Controllers\Admin\BankController::class);
+		Route::resource('/pays',App\Http\Controllers\Admin\PayController::class);
+		Route::resource('/accounts',App\Http\Controllers\Admin\AccountController::class);
+		Route::resource('/users',App\Http\Controllers\Admin\UserController::class);
+		Route::resource('/contacts',App\Http\Controllers\Admin\ContactController::class);
+		Route::view('/profile','admin.pages.profile')->name('admin.profile');
 	});
 });

@@ -4,20 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Package;
+use App\Models\District;
+use Illuminate\Support\Facades\Validator;
 
-
-class PackageController extends Controller
+class DistrictController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $packages = Package::all();
-        return view('admin.pages.package',['packages' => $packages]);
-        //return view('guest.package',compact('packages'));
+    public function index()
+    {
+        $dis = District::all();
+        return view('admin.pages.district',['districts' => $dis]);
     }
 
     /**
@@ -39,19 +39,14 @@ class PackageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'mb' => 'required|numeric',
-            'tk' => 'required|numeric'
+            'name' => 'required'
         ]);
         
         // Insert Data
-        $package = new Package;
-        $package->title = $request->name;
-        $package->mb = $request->mb;
-        $package->tk = $request->tk;
-        $package->description = implode("||",$request->description);
-        if($package->save()){
-            return back()->with('success','New Package Register Success');
+        $district = new District;
+        $district->name = $request->name;
+        if($district->save()){
+            return back()->with('success','New District Register Success');
         }else{
             return back()->with('fail','Something went to wrong,try again later');
         }
@@ -88,7 +83,20 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'name' => 'required'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        } 
+        $district = District::find($request->id);
+        $district->name = $request->name;
+        if($district->save()){
+            return back()->with('successed','Data update successfull');
+        }else{
+            return back()->with('fail','query failed');
+        }
     }
 
     /**
@@ -97,8 +105,12 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($district)
     {
-        //
+        $dlt = District::find($district);
+        $rst = $dlt->delete();
+        if($rst){
+            return response( "Delete Successfull" , 200);
+        }
     }
 }

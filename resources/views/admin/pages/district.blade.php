@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 @section('main_content')
 <div class="container-fluid container">
-    <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Coverage List</h2>
+    <h2 class="text-center bg-secondary p-3 w-50 mx-auto">District List</h2>
     <div class="row">
-      @include('admin.elements._viewcoverage')
-        @include('admin.elements._addcoverage')
+      @include('admin.elements._viewdistrict')
+        @include('admin.elements._adddistrict')
     </div>
 </div>
 @endsection
@@ -21,11 +21,13 @@ function deleteData(id){
   }).then((result) => {
     if (result.isConfirmed) {
       var csrf_token = $('meta[name="_token"]').attr('content');
-      var post_url = "{!! route('coverage.delete') !!}";
+      var post_url = `{{ route('district.destroy', ':district') }}`;
+      post_url = post_url.replace(':district', id);
+      console.log(post_url)
       $.ajax({
-        type: "POST",
+        type: "DELETE",
+        headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
         url: post_url,
-        data: {id: id, _token: csrf_token}, 
         success: function (data) {
           {{-- Swal.fire('Deleted!', data, 'success') --}}
           window.location.reload();
@@ -48,11 +50,7 @@ function deleteData(id){
     }).get();
     
     let check =`<input type="text" name="id" value="${id}">`
-    check +=`<x-input name="name" label="Your Name" inputvalue="${data[0]}" />`
-    check +=`<x-input name="district" label="Your District" inputvalue="${data[1]}" />`
-    check +=`<x-input name="address" label="Your Address" inputvalue="${data[3]}" />`
-    check +=`<x-input name="phone" label="Your Phone" inputvalue="${data[4]}" />`
-    check +=`<x-input name="code" label="Your Code" inputvalue="${data[2]}" />`
+    check +=`<x-input name="name" label="District Name" inputvalue="${data[0]}" />`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
     $("#editdata").html(check);
   })
