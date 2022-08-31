@@ -4,7 +4,7 @@
 <script src="{!! asset('js/app.js') !!}"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="{!! asset('js/sweetalert2.min.js') !!}"></script>
-
+<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 
 <!-- App js -->
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coverage;
+use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,7 +12,8 @@ class CoverageController extends Controller
 {
     public function index(){
         $coverages = Coverage::all();
-        return view('admin.pages.coverage',['coverages' => $coverages]);
+        $districts = District::all();
+        return view('admin.pages.coverage',['coverages' => $coverages,'districts' => $districts]);
     }
 
     public function store(Request $request)

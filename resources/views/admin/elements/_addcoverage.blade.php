@@ -16,8 +16,9 @@
       <x-input name="name" label="Your Name" place="Enter your Name"/>
       <x-input name="address" label="Your address" place="Enter your address"/>
       <x-formselect name="district">
-        <option value="1">1</option>
-        <option value="2">2</option>
+        @foreach ($districts as $item)
+        <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+        @endforeach
       </x-formselect>
       <x-input name="code" label="Your post code" place="Enter your post code"/>
       <x-input name="phone" label="Your phone number" place="Enter your phone"/>

@@ -36,10 +36,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('guest.package') }}">Home Internet</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('guest.package') }}">Package</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('guest.package') }}">Corporate Internet</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>

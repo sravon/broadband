@@ -26,6 +26,8 @@ Route::get('/', function () {
  ;
 Route::post('/auth/check',[AdminController::class, 'check'])->name('admin.check');
 Route::get('/package',[App\Http\Controllers\Guest\PackageController::class, 'viewData'])->name('guest.package');
+Route::get('/pay',[App\Http\Controllers\Guest\PayController::class, 'index'])->name('guest.pay');
+Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contacts');
 
 
 // Auth::routes();
@@ -51,12 +53,14 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::post('/coverage/register',[App\Http\Controllers\Admin\CoverageController::class, 'store'])->name('coverage.register');
 		Route::post('/coverage/update',[App\Http\Controllers\Admin\CoverageController::class, 'edit'])->name('coverage.update');
 		Route::post('/coverage/delete',[App\Http\Controllers\Admin\CoverageController::class, 'destroy'])->name('coverage.delete');
-		Route::resource('/district',App\Http\Controllers\Admin\DistrictController::class);
+		Route::resource('/district',App\Http\Controllers\Admin\DistrictController::class); 
+		Route::resource('/corporate',App\Http\Controllers\Admin\CorporateInternetController::class); 
 		Route::resource('/bank',App\Http\Controllers\Admin\BankController::class);
 		Route::resource('/pays',App\Http\Controllers\Admin\PayController::class);
 		Route::resource('/accounts',App\Http\Controllers\Admin\AccountController::class);
 		Route::resource('/users',App\Http\Controllers\Admin\UserController::class);
 		Route::resource('/contacts',App\Http\Controllers\Admin\ContactController::class);
+		Route::resource('/about',App\Http\Controllers\Admin\AboutController::class);
 		Route::view('/profile','admin.pages.profile')->name('admin.profile');
 	});
 });
