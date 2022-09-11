@@ -7,6 +7,7 @@
     <meta content="@lang('config.common_meta_author')" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="_token" content="{{ csrf_token() }}">
     {{-- @if ($common_data->title)
         {!! $common_data->title !!}
     @endif --}}

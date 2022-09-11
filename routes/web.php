@@ -26,6 +26,9 @@ Route::get('/', function () {
  ;
 Route::post('/auth/check',[AdminController::class, 'check'])->name('admin.check');
 Route::get('/package',[App\Http\Controllers\Guest\PackageController::class, 'viewData'])->name('guest.package');
+Route::get('/corporateinternet',[App\Http\Controllers\Guest\CorporateInternetController::class, 'index'])->name('guest.corporateinternet');
+Route::get('/coverage',[App\Http\Controllers\Guest\CoverageController::class, 'index'])->name('guest.coverage');
+Route::post('/coverage/ajax',[App\Http\Controllers\Guest\CoverageController::class, 'getAreaByCountry'])->name('guest.ajax.get-area-by-country-type');
 Route::get('/pay',[App\Http\Controllers\Guest\PayController::class, 'index'])->name('guest.pay');
 Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contacts');
 
@@ -46,8 +49,10 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::group(['middleware' => 'admin.auth'], function(){
 		Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('admin.dashboard');
 		Route::get('/logout',[App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
-		Route::view('/package','admin.pages.package')->name('admin.package');
+		Route::get('/package',[App\Http\Controllers\Admin\PackageController::class, 'index'])->name('admin.package');
 		Route::post('/package/register',[App\Http\Controllers\Admin\PackageController::class, 'store'])->name('package.register');
+		Route::put('/package/{package}',[App\Http\Controllers\Admin\PackageController::class, 'update'])->name('package.update');
+		Route::delete('/package/{id}',[App\Http\Controllers\Admin\PackageController::class, 'destroy'])->name('package.destroy');
 		//Route::view('/coverage','admin.pages.coverage')->name('admin.coverage');
 		Route::get('/coverage',[App\Http\Controllers\Admin\CoverageController::class, 'index'])->name('admin.coverage');
 		Route::post('/coverage/register',[App\Http\Controllers\Admin\CoverageController::class, 'store'])->name('coverage.register');
@@ -61,6 +66,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('/users',App\Http\Controllers\Admin\UserController::class);
 		Route::resource('/contacts',App\Http\Controllers\Admin\ContactController::class);
 		Route::resource('/about',App\Http\Controllers\Admin\AboutController::class);
+		Route::resource('/corporateinternet',App\Http\Controllers\Admin\CorporateInternetController::class);
 		Route::view('/profile','admin.pages.profile')->name('admin.profile');
 	});
 });

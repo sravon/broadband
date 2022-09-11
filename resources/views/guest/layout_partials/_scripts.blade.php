@@ -9,4 +9,10 @@
 @yield('page_script_plugins')
 
 
-@yield('page_scripts')
+<script>
+    @yield('raw_javascript')
+    
+    $(document).ready(function(){
+        @yield('jquery')
+	})
+</script>

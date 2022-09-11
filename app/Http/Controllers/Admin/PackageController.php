@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Package;
-
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class PackageController extends Controller
 {
@@ -88,7 +89,26 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'title' => 'required',
+            'mb' => 'required|numeric',
+            'tk' => 'required|numeric'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        }
+
+        $package = Package::find($request->id);
+        $package->title = $request->title;
+        $package->mb = $request->mb;
+        $package->tk = $request->tk;
+        $package->description = implode("||",$request->description);
+        if($package->save()){
+            return back()->with('successed','Data update successfull');
+        }else{
+            return back()->with('fail','Query failed');
+        }
     }
 
     /**
@@ -99,6 +119,10 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dlt = Package::find($id);
+        $rst = $dlt->delete();
+        if($rst){
+            return response( "Delete Successfull" , 200);
+        }
     }
 }

@@ -42,13 +42,16 @@
           <a class="nav-link active" aria-current="page" href="{{ route('guest.package') }}">Home Internet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('guest.package') }}">Package</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{ route('guest.package') }}">Corporate Internet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="{{ route('guest.package') }}">Coverage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('guest.pay') }}">Bill Pay</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('guest.contacts') }}">Contacts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

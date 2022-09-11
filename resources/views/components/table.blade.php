@@ -1,4 +1,5 @@
-<table class="table table-responsive" id="myTable">
+<div class="table-responsive">
+  <table class="table display" id="myTable">
     <thead>
       <tr>
         <th scope="row">No</th>
@@ -12,3 +13,5 @@
         {{ $slot }}
     </tbody>
 </table>
+</div>
+  

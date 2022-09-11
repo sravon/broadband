@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 @section('main_content')
 <div class="container-fluid container">
-    <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Package List</h2>
+    <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Corporate Internet List</h2>
     <div class="row">
-      @include('admin.elements._viewpackages')
-      @include('admin.elements._addpackage')
+      @include('admin.elements._viewcorporateinternets')
+      @include('admin.elements._addcorporateinternet')
     </div>
 </div>
 @endsection
@@ -32,11 +32,10 @@
       }).get();
       console.log(data)
       let check =`<input type="text" name="id" value="${id}">`
-      check +=`<x-input name="title" label="Package Name" inputvalue="${data[0]}" />`
-      check +=`<x-input name="mb" label="Internet Speed" inputvalue="${data[1]}" />`
-      check +=`<x-input name="tk" label="Internet Price" inputvalue="${data[2]}" />`
+      check +=`<x-input name="name" label="Corporate Item Name" inputvalue="${data[0]}" />`
+      check +=`<x-input name="icon_name" label="Icon Name" inputvalue="${data[1]}" />`
       check +=`<div class="mb-3" id="included"><div class="d-flex justify-content-around align-items-center"><h6 class="text-center text-dark fw-bold p-3">WHAT'S INCLUDED</h6><button type="button" id="addmore1" class="btn btn-success h-25">Add More</button></div>`
-      var des = `${data[3]}`
+      var des = `${data[2]}`
       desArray = des.split('||')
       var count = 0;
       desArray.forEach(function(number) {
