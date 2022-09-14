@@ -52,7 +52,10 @@ function load_data(country = null)
   });
  }
 $('#country').on('change', function() {
-  var txt = $(this).val();
+  var txt = $(this).val() + '_'+$(this).find(":selected").text();
   load_data(txt);
 });
+
+
+
 @endsection

@@ -31,6 +31,8 @@ Route::get('/coverage',[App\Http\Controllers\Guest\CoverageController::class, 'i
 Route::post('/coverage/ajax',[App\Http\Controllers\Guest\CoverageController::class, 'getAreaByCountry'])->name('guest.ajax.get-area-by-country-type');
 Route::get('/pay',[App\Http\Controllers\Guest\PayController::class, 'index'])->name('guest.pay');
 Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contacts');
+Route::get('/ip_phones',[App\Http\Controllers\Guest\IphoneController::class, 'index'])->name('guest.ipphones');
+Route::get('/about',[App\Http\Controllers\Guest\AboutController::class, 'index'])->name('guest.about');
 
 
 // Auth::routes();
@@ -67,6 +69,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('/contacts',App\Http\Controllers\Admin\ContactController::class);
 		Route::resource('/about',App\Http\Controllers\Admin\AboutController::class);
 		Route::resource('/corporateinternet',App\Http\Controllers\Admin\CorporateInternetController::class);
+		Route::resource('/iphones',App\Http\Controllers\Admin\IpphoneController::class);
 		Route::view('/profile','admin.pages.profile')->name('admin.profile');
 	});
 });
