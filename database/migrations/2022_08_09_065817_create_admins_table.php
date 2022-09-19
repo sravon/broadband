@@ -18,8 +18,10 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('type', ['admin', 'editor','subcriber']);
+            $table->enum('role', ['admin', 'editor','subcriber']);
             $table->char('phone',11);
+            $table->string('image');
+            $table->char('gender',5);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

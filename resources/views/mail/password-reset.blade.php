@@ -9,11 +9,11 @@
 </head>
 <body style="text-align: center;">
 
-<h1>Give A Work</h1>
+<h1>Broadband</h1>
 <h3>Password reset link</h3>
 
-<a href="{!! route('frontend.reset-password') !!}?token={!! $password_reset->token !!}" target="_blank"><h2>Click Here</h2></a>
-<a href="{!! route('frontend.reset-password') !!}?token={!! $password_reset->token !!}" target="_blank">{!! route('frontend.reset-password') !!}?token={!! $password_reset->token !!}</a>
+<a href="{!! route('admin.auth.getResetPasswordVerify') !!}?token={!! $password_reset->token !!}" target="_blank"><h2>Click Here</h2></a>
+<a href="{!! route('admin.auth.getResetPasswordVerify') !!}?token={!! $password_reset->token !!}" target="_blank">{!! route('admin.auth.getResetPasswordVerify') !!}?token={!! $password_reset->token !!}</a>
 
 </body>
 </html>

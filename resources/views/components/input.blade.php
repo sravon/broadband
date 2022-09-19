@@ -1,7 +1,7 @@
 <div class="mb-3">
     <label for="{{ $label }}" class="fw-bold col-form-label">{{ $label }}</label>
     <div class="">
-      <input type="{{ isset($datatype) ? $datatype : 'text' }}" 
+      <input id="{{ $id }}" type="{{ isset($datatype) ? $datatype : 'text' }}" 
         class="form-control" 
         name="{{ $name }}"  
         @if ($readonly) {{ "readonly disabled" }} @endif

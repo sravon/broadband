@@ -10,8 +10,7 @@ use App\Http\Requests\Auth\RegistrationRequest;
 use App\Mail\UserRegistrationMail;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -150,5 +149,10 @@ class AdminController extends Controller
 
         return redirect()->route('admin.login')
             ->with('success', 'Email verified.');
+    }
+
+    public function getResetPassword(Request $request)
+    {
+        
     }
 }

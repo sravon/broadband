@@ -17,10 +17,10 @@ use App\Http\Controllers\AdminController;
 Route::get('/admintest', function () {
     return view('admin.test');
 });
-Route::get('/', function () {
-    return view('guest.index');
-});
-
+// Route::get('/', function () {
+//     return view('guest.index');
+// });
+Route::get('/',[App\Http\Controllers\Guest\IndexController::class, 'index'])->name('guest.index');
 // admin
 // Route::get('/auth/login',[AdminController::class, 'login'])->name('admin.login');
  ;
@@ -46,6 +46,10 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/register-confirm',[AdminController::class, 'getConfirmRegister'])->name('admin.register.confirm');
 		Route::view('/login','admin.auth.login')->name('admin.login');
 		Route::post('/login',[App\Http\Controllers\AdminController::class, 'authenticate'])->name('admin.auth');
+		Route::view('/forgetpassword','admin.auth.forgetpassword')->name('admin.forgetpassword');
+		Route::post('/forgetpassword',[App\Http\Controllers\ForgetPaswordController::class, 'postForgotPassword'])->name('admin.auth.forgetpassword');
+		Route::get('/resetpassword',[App\Http\Controllers\ForgetPaswordController::class, 'getResetPasswordVerify'])->name('admin.auth.getResetPasswordVerify');
+		Route::post('/resetpassword',[App\Http\Controllers\ForgetPaswordController::class, 'postResetPasswordVerify'])->name('admin.auth.postResetPasswordVerify');
 	});
 	
 	Route::group(['middleware' => 'admin.auth'], function(){
@@ -70,6 +74,10 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('/about',App\Http\Controllers\Admin\AboutController::class);
 		Route::resource('/corporateinternet',App\Http\Controllers\Admin\CorporateInternetController::class);
 		Route::resource('/iphones',App\Http\Controllers\Admin\IpphoneController::class);
+		Route::resource('/social_media',App\Http\Controllers\Admin\SociaController::class);
+		Route::resource('/sliders',App\Http\Controllers\Admin\SliderController::class);
 		Route::view('/profile','admin.pages.profile')->name('admin.profile');
+		Route::put('/profile/{id}',[App\Http\Controllers\Admin\UserController::class, 'profileupdate'])->name('profile.update');
+		Route::post('/profile/changepassword',[App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('profile.changepassword');
 	});
 });

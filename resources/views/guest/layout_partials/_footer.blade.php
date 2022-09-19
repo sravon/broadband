@@ -2,25 +2,27 @@
   
     <div class="row">
       <div class="col-md-4">
-        <div class="col-md-4">
-          <h3 class="text-light">Service</h3>
-          <p class="h6"><a href="country.html" class="text-muted">Gre</a></p>
-          <p class="h6"><a href="exam.html" class="text-muted">Gmat</a></p>
-          <p class="h6"><a href="forum.html" class="text-muted">Ilets</a></p>
-        </div>
+        <h3 class="w-50 mx-auto text-light border border-top-0 border-start-0 border-end-0 border-danger border-3 p-2">Company</h3>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.pay') }}">Bill Pay</a></p>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.coverage') }}">Coverage</a></p>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.about') }}">About</a></p>
       </div>
       <div class="col-md-4">
-        <h3 class="text-light">Useful Links</h3>
-        <p class="h6"><a href="country.html" class="text-muted">Country</a></p>
-        <p class="h6"><a href="exam.html" class="text-muted">Exam</a></p>
-        <p class="h6"><a href="forum.html" class="text-muted">Forum</a></p>
+        <h3 class="w-50 mx-auto text-light border border-top-0 border-start-0 border-end-0 border-danger border-3 p-2">Useful Links</h3>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.package') }}">Home Internet</a></p>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.corporateinternet') }}">Corporate Internet</a></p>
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.ipphones') }}">Ip Phone</a></p>
       </div>
       <div class="col-md-4">
-        <h4 class="text-light">Contact</h4>
-        <p class="text-muted">5th flora, 700/D kings road, green</p>
-        <p class="text-muted">lane New York-1782</p>
-        <p class="text-muted">+10 367 826 2567</p>
-        <p class="text-muted">contact@carpenter.com</p>
+        <h4 class="w-50 mx-auto text-light border border-top-0 border-start-0 border-end-0 border-danger border-3 p-2">Contact</h4>
+        @foreach ($commondata->contacts as $item)
+          @php
+            $des_array = explode("||",$item->description);
+          @endphp
+          @foreach ($des_array as $element)
+            <p class="text-muted">{{ $element }}</p>
+          @endforeach
+        @endforeach
         <div >
           <button class="btn top_btn"><i class="fa fa-facebook"></i></button>
           <button class="btn top_btn"><i class="fa fa-twitter"></i></button>

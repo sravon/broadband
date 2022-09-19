@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bank;
 use App\Models\Pay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
 {
@@ -15,8 +17,11 @@ class PayController extends Controller
      */
     public function index()
     {
-        $pay = Pay::all();
-        return view('guest.pay',['pays' => $pay]);
+        $banks = DB::table('account_infos')
+        ->join('banks', 'banks.id', '=', 'account_infos.bank_id')
+        ->select('account_infos.*', 'banks.name as bank_name', 'banks.image as bank_image')
+        ->get();
+        return view('guest.pay',['pays' => Pay::all(), 'banks' => $banks]);
     }
 
     /**

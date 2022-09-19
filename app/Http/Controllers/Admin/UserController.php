@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -103,5 +106,72 @@ class UserController extends Controller
         }
     }
 
+    public function profileupdate(Request $request,$id)
+    {
+        // print_r($_POST);
+        // print_r($_FILES);
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif|max:1024'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        }
+
+        $slider = Admin::find($request->id);
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $filepath = $request->image->storeAs('sliders', $imageName);
+            if(File::exists(public_path($slider->image))){
+                File::delete(public_path($slider->image));
+            }else{
+                return back()->with('fail','File does not exists.');
+            }
+        }else{
+            $filepath = $slider->image;
+        }
+        try {
+            $slider->name = $request->name;
+            $slider->phone = $request->phone;
+            $slider->gender = $request->gender;
+            $slider->image = $filepath;
+            if($slider->save()){
+                return back()->with('successed','Data update successfull');
+            }else{
+                return back()->with('fail','query failed');
+            }
+        } catch (\Exception $exception) {
+            return redirect()->back()
+                ->with('fail', 'Register operation failed. Cause '.$exception->getMessage());
+        }
+            
+    }
+
+    public function changePassword(Request $request){
+        //return $request->input();
+        $validator = Validator::make($request->all(),[
+            'currentpassword' => 'required',
+            'newpassword' => 'required|min:5|max:12',
+            'confirmpassword' => 'required|same:newpassword'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        }
+        $current_user = Auth::guard('admin')->user();
+        if(Hash::check($request->currentpassword,$current_user->password)){
+            Admin::where('id',$current_user->id)
+            ->update([
+                'password' => Hash::make($request->newpassword)
+            ]);
+            return back()->with('successed','password update successfull');
+        }else{
+            return redirect()->back()
+                ->with('fail', 'Old Password Does Not Match');
+        };
+    }
 
 }

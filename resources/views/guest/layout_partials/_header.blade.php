@@ -13,7 +13,10 @@
         </div>
         <div class="col-md-6">
           <div class="pull-right">
-            <button class="btn top_btn"><i class="fa fa-facebook"></i></button>
+            @foreach ($commondata->socialmedia as $item)
+              <a href="{{ $item->link }}" class="btn top_btn"><i class="fa fa-{{$item->icon}}"></i></a>
+            @endforeach
+            
             <button class="btn top_btn"><i class="fa fa-twitter"></i></button>
             <button class="btn top_btn"><i class="fa fa-linkedin"></i></button>
             <button class="btn top_btn"><i class="fa fa-google-plus"></i></button>
@@ -42,7 +45,7 @@
           <a class="nav-link active" aria-current="page" href="{{ route('guest.package') }}">Home Internet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('guest.package') }}">Corporate Internet</a>
+          <a class="nav-link" href="{{ route('guest.corporateinternet') }}">Corporate Internet</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('guest.ipphones') }}">Ip Phone</a>

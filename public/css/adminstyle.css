@@ -24,7 +24,8 @@ a,a:hover,a:fcus{
 	max-height: 100vh;
 	overflow-y: scroll;
 	background: #7386D5;
-	color: #fff;transition: all 0.3sß
+	color: #fff;transition: all 0.3sß;
+	position: fixed;
 }
 .lisst-unstyled{
 	list-style: none;
@@ -90,6 +91,9 @@ ul ul a{
 	font-size: 0.9em !important;
 	padding-left: 30px !important;
 	background: #6d7fcc;
+}
+.activecontent{
+	margin-left: 250px;
 }
 #content{
 	width: 100%;padding: 20px;

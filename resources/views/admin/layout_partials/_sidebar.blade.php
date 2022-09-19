@@ -1,52 +1,41 @@
-<nav class="navbar bg-secondary fixed-top container-fluid ">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="dropdown mr-3" style="position: relative;">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;padding: 2px">
-          <img class="nav-user-photo rounded-circle" width="50" src="sikkim.jpg">
-        </button>
-        <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuButton" style="position: absolute;left: -90px">
-          <a class="dropdown-item position-relative" href="logout/">Switch to seller</a>
-          <a class="dropdown-item position-relative" href="/student/logout/">Logout</a>
-        </div>
-      </div>
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
+<nav id="sidebar">
+  <div class="sidebar-header">
+      <img src="{{
+            asset(Auth::user()->image ? Auth::user()->image : 'assets/logo/profile.png') 
+          }}" class="rounded-circle mx-auto d-block img-fluid" style="width: 100px;height: 100px;">
+      <h5 class="text-center"><b class="text-warning">{{ Auth::user()->name }}</b></h5>
+  </div>
+  <ul class="lisst-unstyled components">
+      <p>Role : {{ Auth::user()->role }}</p>
+      <li class="{{ (request()->is('admin/dashboard')) ? 'active' : '' }}">
+          <a href="{{ route('admin.dashboard') }}" data-toggle="collapse"><i class="fa fa-home"></i>Home</a>
+      </li>
+      <li class="{{ (request()->is('admin/package')) ? 'active' : '' }}">
+          <a href="{{ route('admin.package') }}"><i class="fa fa-ticket"></i>Package</a>
+      </li>
+      <li class="{{ (request()->is('admin/coverage')) ? 'active' : '' }}">
+          <a href="{{ route('admin.coverage') }}"><i class="fa fa-map"></i>Coverage</a>
+      </li>
+      <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}">
+          <a href="{{ route('district.index') }}"><i class="fa fa-diamond"></i>District</a>
+      </li>
+      <li class="{{ (request()->is('admin/bank')) ? 'active' : '' }}">
+          <a href="{{ route('bank.index') }}"><i class="fa fa-university"></i>Bank</a>
+      </li>
+      <li class="{{ (request()->is('admin/accounts')) ? 'active' : '' }}">
+          <a href="{{ route('accounts.index') }}"><i class="fa fa-male"></i>Account</a>
+      </li>
+      <li class="{{ (request()->is('admin/pays')) ? 'active' : '' }}">
+          <a href="{{ route('pays.index') }}"><i class="fa fa-money"></i>Payment Info</a>
+      </li>
+      <li class="{{ (request()->is('admin/users')) ? 'active' : '' }}">
+          <a href="{{ route('users.index') }}"><i class="fa fa-user"></i>User List</a>
+      </li>
+      <li class="{{ (request()->is('admin/contacts')) ? 'active' : '' }}">
+          <a href="{{ route('contacts.index') }}"><i class="fa fa-contao"></i>Contacts</a>
+      </li>
+      <li>
+          <a href="#"><i class="fa fa-address-book-o"></i>About</a>
+      </li>
+  </ul>
 </nav>
-<br>
-<br>
-<br>

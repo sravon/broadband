@@ -35,7 +35,10 @@
                         <span class="text-light">@error('password'){{ $message }} @enderror</span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">login</button>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">login</button>
+                    <a class="text-light me-2" href="{{ route('admin.forgetpassword') }}">Forget Password ?</a>
+                </div>
                 <br>
                 <a href="{{ route('admin.register') }}">create a account, sign up</a>
             </form>

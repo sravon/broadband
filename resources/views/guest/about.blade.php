@@ -31,7 +31,7 @@
            <div class="col-md-5 mbbox bg-secondary animated fadeInRight" style="padding: 29px;">
                <div class="card text-center">
                     <div class="card-body bg-light text-dark">
-                       <p class="h3">Visson</p>
+                       <p class="h3">Vision</p>
                        <p>{!! $about->vision !!}</p>
                        <button class="btn btn-sm btn-outline-dark">Read More</button>
                     </div>

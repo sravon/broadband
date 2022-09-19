@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary editbtn" id="{{ $id }}">
-    Edit</button>
+    {{ isset($name) ? $name : "Edit" }}</button>
     @php
         $inspect = explode(",",$route);
         $new = [];

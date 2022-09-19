@@ -47,4 +47,32 @@
         </div>
     </div>
 </section>
+<section class="container-fluid container">
+    <div class="w-75 mx-auto">
+        <h2 class="fw-bold">Pay Bill through Bank</h2>
+        <div class="row">
+            @foreach ($banks as $bank)
+                <div class="col-md-4">
+                    <div class="p-2 shadow">
+                        <div class="row alert alert-danger border-0">
+                            <div class="col-md-3">
+                                <img src="{{ asset($bank->bank_image) }}" width="50">
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="text-danger fw-bold">{{ $bank->bank_name }}</h4>
+                                <p>Pay with your Brac bank account</p>
+                            </div>
+                        </div>
+                        <div class="row alert alert-secondary p-2" style="margin-top:-17px">
+                            <p>Account name: {{ $bank->name }}</p>
+                            <p>Account no: {{ $bank->ac_no }}</p>
+                            <p>Routing no: {{ $bank->r_no }}</p>
+                            <p>Branch: {{ $bank->branch }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 @endsection
