@@ -15,12 +15,17 @@
         <td >{{ $item->icon_name }}</td>
         <td >{{ $item->items }}</td>
         <td>
-          <x-modal 
+          @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+            <x-modal 
             type="editmodal" 
             route="corporateinternet.update,corporateinternet=>{{ $item->id }}" 
-            title="Edit Data" id="{{ $item->id }}" /> ||
-            <button class="btn btn-danger" onclick="deleteData('{{ route('corporateinternet.destroy',['corporateinternet'=>$item->id]) }}')">
+            title="Edit Data" id="{{ $item->id }}" /> 
+          @endif
+            ||
+            @if (Auth::user()->role === 'admin')
+              <button class="btn btn-danger" onclick="deleteData('{{ route('corporateinternet.destroy',['corporateinternet'=>$item->id]) }}')">
             Delete</button>
+            @endif
         </td>
       </tr>   
     @endforeach

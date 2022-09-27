@@ -14,12 +14,17 @@
           <th scope="row">{{ $loop->iteration }}</th>
           <td>{{ $item->name }}</td>
           <td>
-            <x-modal 
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+              <x-modal 
               type="editmodal" 
               route="district.update,district=>{{ $item->id }}" 
-              title="Edit Data" id="{{ $item->id }}" /> ||
-              <button class="btn btn-danger" onclick="deleteData({{ $item->id }})">
-              Delete</button>
+              title="Edit Data" id="{{ $item->id }}" />
+            @endif
+              ||
+              @if (Auth::user()->role === 'admin')
+                <button class="btn btn-danger" onclick="deleteData({{ $item->id }})">
+                Delete</button>
+              @endif
           </td>
         </tr>   
       @endforeach

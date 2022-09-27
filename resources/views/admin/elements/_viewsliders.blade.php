@@ -14,13 +14,18 @@
           <th scope="row">{{ $loop->iteration }}</th>
           <td><img width="50" src="{{ asset($item->image) }}" alt=""></td>
           <td data-image="{{ $item->image }}">
-            <x-modal 
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+              <x-modal 
               type="editmodal" 
               route="sliders.update,slider=>{{ $item->id }}"
-              title="Edit Data" id="{{ $item->id }}" /> ||
-              <button class="btn btn-danger" 
+              title="Edit Data" id="{{ $item->id }}" />
+              @endif
+              ||
+              @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+                <button class="btn btn-danger" 
                 onclick="deleteData('{{ route('sliders.destroy',['slider'=>$item->id]) }}')">
               Delete</button>
+              @endif
           </td>
         </tr>   
       @endforeach

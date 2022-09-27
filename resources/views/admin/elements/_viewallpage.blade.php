@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-10 mx-auto">
     @if ( Session::get('fail'))
       <x-alert type="error" message="In edit form, {{ Session::get('fail') }}"/>
     @endif
@@ -7,26 +7,22 @@
     @endif
     {{-- table component --}}
     <x-table 
-      :th="['Name', 'Icon', 'Link']" 
+      :th="['Name', 'Description']" 
     >
-      @foreach ($socialmedia as $item)
+      @foreach ($pages as $item)
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
           <td>{{ $item->name }}</td>
-          <td><div class="p-2"><i class="fa fa-{{ $item->icon }}" style="font-size: 31px"></i></div></td>
-          <td>{{ $item->link }}</td>
+          <td>{!! $item->description !!}</td>
           <td>
             @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
-            <x-modal 
-              type="editmodal" 
-              route="social_media.update,social_media=>{{ $item->id }}"
-              title="Edit Data" id="{{ $item->id }}" />
+              <a class="btn btn-primary" href="?source=edit&id={{ $item->id }}">Edit</a>
             @endif
              ||
-             @if (Auth::user()->role === 'admin')
+            @if (Auth::user()->role === 'admin')
               <button class="btn btn-danger" 
-                onclick="deleteData('{{ route('social_media.destroy',['social_media'=>$item->id]) }}')">
-              Delete</button>
+              onclick="deleteData('{{ route('pages.destroy',['page'=>$item->id]) }}')">
+            Delete</button>
             @endif
           </td>
         </tr>   

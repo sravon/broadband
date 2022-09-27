@@ -4,7 +4,9 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Corporate Internet List</h2>
     <div class="row">
       @include('admin.elements._viewcorporateinternets')
-      @include('admin.elements._addcorporateinternet')
+      @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+        @include('admin.elements._addcorporateinternet')
+      @endif
     </div>
 </div>
 @endsection

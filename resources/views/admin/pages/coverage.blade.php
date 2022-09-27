@@ -4,7 +4,10 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Coverage List</h2>
     <div class="row">
       @include('admin.elements._viewcoverage')
+      @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
         @include('admin.elements._addcoverage')
+      @endif
+        
     </div>
 </div>
 @endsection

@@ -15,7 +15,7 @@
                 <td>
                     <x-modal 
                     type="editmodal" 
-                    route="accounts.update,account=>{{ $item->id }}"
+                    route="contacts.update,contact=>{{ $item->id }}"
                     title="Edit Data" id="{{ $item->id }}" />
                 </td>
                 </tr>   
@@ -25,16 +25,39 @@
     </div>
 </div>
 @endsection
-@section('page_scripts')
-    $("#addmore").click(function(){
-        var lastId = $(".incd:last-child").attr("id");
-        console.log(lastId);
-        $("#included").append(`<div class='d-flex justify-content-between w-75 mx-auto mb-3 incd' id='${parseInt(lastId) + 1}'><input type='text' class='form-control' name='description[]' required><button type='button' class='btn btn-sm btn-danger'>x</button></div>`);
-    });
-    $(document).on('click','.incd',function(){
-        var id = $(this).closest("div").attr("id")
-        console.log(id)
-        $(`#${id}`).remove();
-    });
+@section('jquery')
+    
+    $(document).on('click','.incd1',function(){
+      var id = $(this).closest("div").attr("id")
+      console.log(id)
+      $(`#${id}`).remove();
+    }); 
+    $('.editbtn').on('click',function(){
+      $('#editmodal').modal('show');
+      $tr = $(this).closest('tr');
+      let id = $(this).attr('id');
+      var data = $tr.children("td").map(function () {
+        return $(this).text();
+      }).get();
+      console.log(data)
+      let check =`<input type="text" name="id" value="${id}">`
+      check +=`<x-input name="name" label="Corporate Item Name" inputvalue="${data[0]}" />`
+      check +=`<div class="mb-3" id="included"><div class="d-flex justify-content-around align-items-center"><h6 class="text-center text-dark fw-bold p-3">WHAT'S INCLUDED</h6><button type="button" id="addmore1" class="btn btn-success h-25">Add More</button></div>`
+      var des = `${data[1]}`
+      desArray = des.split('||')
+      var count = 0;
+      desArray.forEach(function(number) {
+        console.log(number);
+        check +=`<div class="plusdiv d-flex justify-content-between w-75 mx-auto mb-3 " id="${count +=1}"><input type="text" class="form-control" name="description[]" value="${number}" required><button type="button" class=" btn btn-sm btn-danger incd1">x</button></div>`
+      });
+      check +=`</div>`
+      check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
+      $("#editdata").html(check);
+    })
+    $(document).on('click','#addmore1',function(){
+      var lastId = $(".plusdiv:last-child").attr("id");
+      console.log(lastId);
+      $("#included").append(`<div class='plusdiv d-flex justify-content-between w-75 mx-auto mb-3' id='${parseInt(lastId) + 1}'><input type='text' class='form-control' name='description[]' required><button type='button' class='btn btn-sm btn-danger incd1'>x</button></div>`);
+    })
 @endsection
 

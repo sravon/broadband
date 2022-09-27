@@ -104,13 +104,19 @@ class AdminController extends Controller
     }
 
     public function postRegister(RegistrationRequest $request){
-        
+         
          try {
             $user = new Admin();
             $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;
             $user->password = Hash::make($request->password);
+            $user->gender = $request->gender;
+            if(Admin::all()->count() == 0 ){
+                $user->role = 'admin';
+            }else{
+                $user->role = 'subscriber';
+            };
             $user->remember_token = Str::random(30);
             $user->created_at = Carbon::now();
             $user->save();

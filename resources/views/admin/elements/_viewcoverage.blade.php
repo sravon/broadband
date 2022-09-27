@@ -18,12 +18,17 @@
           <td>{{ $item->address }}</td>
           <td>{{ $item->phone }}</td>
           <td>
-            <x-modal 
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+              <x-modal 
               type="editmodal" 
               route="coverage.update" 
-              title="Edit Data" id="{{ $item->id }}" /> ||
-              <button class="btn btn-danger" onclick="deleteData({{ $item->id }})">
+              title="Edit Data" id="{{ $item->id }}" /> 
+              @endif
+              ||
+              @if (Auth::user()->role === 'admin')
+                <button class="btn btn-danger" onclick="deleteData({{ $item->id }})">
               Delete</button>
+              @endif
           </td>
         </tr>   
       @endforeach

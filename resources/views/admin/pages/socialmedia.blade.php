@@ -4,7 +4,9 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Social Media</h2>
     <div class="row">
       @include('admin.elements._viewsocialmedia')
-        @include('admin.elements._addsocialmedia')
+        @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+          @include('admin.elements._addsocialmedia')
+        @endif
     </div>
 </div>
 @endsection

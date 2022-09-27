@@ -4,7 +4,9 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Bank List</h2>
     <div class="row">
         @include('admin.elements._viewbank')
-        @include('admin.elements._addbank')
+        @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
+          @include('admin.elements._addbank')
+        @endif
     </div>
 </div>
 @endsection

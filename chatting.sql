@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2022 at 05:39 AM
+-- Generation Time: Sep 27, 2022 at 06:37 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -42,7 +42,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `title`, `mission`, `vision`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\r\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\r\nBeing in the middle of all IT services offered by various companies, BCLOL had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together.\r\nSince forming, BCLOL has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers.\r\nSurfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal..\r\n\r\nAmber IT is not simply another link in the chain of voice and data supply in the Bangladesh. Our pioneering spirit is evidenced by the creation of a national, fully resilient, MPLS network and the continuous testing and adoption of emerging communications platforms. As a result, we have earned the reputation of a communications provider whose focus is on solidly addressing businesses\' communications requirements.', NULL, '<p><strong><em>BCL Online Limited (BCLOL) is an</em></strong> innovation house offering IT enabled services, virtualization, custom solutions in selected platforms. BCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions. Being in the middle of all IT services offered by various companies, BCLOL had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together. Since forming, BCLOL has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers. Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.. Amber IT is not simply another link in the chain of voice and data supply in the Bangladesh. Our pioneering spirit is evidenced by the creation of a national, fully resilient, MPLS network and the continuous testing and adoption of emerging communications platforms. As a result, we have earned the reputation of a communications provider whose focus is on solidly addressing businesses&#39; communications requirements.</p>', NULL, '2022-08-31 00:47:48');
+(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\nse focus is on solidly addressing businesses\' communications requirements.', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\nse focus is on solidly addressing businesses\' communications requirements.', '<p><strong><em>BCL Online Limited (BCLOL) is an</em></strong> innovation house offering IT enabled services, virtualization, custom solutions in selected platforms. BCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions. Being in the middle of all IT services offered by various companies, BCLOL had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together. Since forming, BCLOL has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers. Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.. Amber IT is not simply another link in the chain of voice and data supply in the Bangladesh. Our pioneering spirit is evidenced by the creation of a national, fully resilient, MPLS network and the continuous testing and adoption of emerging communications platforms. As a result, we have earned the reputation of a communications provider whose focus is on solidly addressing businesses&#39; communications requirements.</p>', NULL, '2022-08-31 00:47:48');
 
 -- --------------------------------------------------------
 
@@ -61,6 +61,13 @@ CREATE TABLE `account_infos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `account_infos`
+--
+
+INSERT INTO `account_infos` (`id`, `name`, `bank_id`, `ac_no`, `r_no`, `branch`, `created_at`, `updated_at`) VALUES
+(2, 'abdur rahman kazi', 11, 324234232423423, 436345, 'comilla', '2022-09-14 15:09:41', '2022-09-14 15:09:41');
+
 -- --------------------------------------------------------
 
 --
@@ -77,23 +84,18 @@ CREATE TABLE `admins` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `phone` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
+  `phone` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`, `phone`) VALUES
-(1, 'rss rita', 'user@gmail.com', NULL, 'admin', 'pnj9Zg9', NULL, '2022-08-09 01:37:43', '2022-08-27 09:57:51', ''),
-(3, 'john ahta', 'john@gmail.com', NULL, NULL, '$2y$10$bu08p8sYwBeQ4oyK5uCy4erC9bAdPtCmgxenZh9VNgjQXliUOSbae', NULL, '2022-08-09 09:34:32', '2022-08-09 09:34:32', ''),
-(4, 'nickname', 'kazi@gmail.com', NULL, NULL, '$2y$10$S6gV6SSih7AKEm4njU0xY.Wx9p1i/mvP1dzcd3kg2TVuPjWmx5zEe', 'zF5N5ufnm6vZ6DvS', '2022-08-09 23:15:44', '2022-08-09 23:15:46', '01834920142'),
-(5, '_name', 'ar42@gmail.com', NULL, NULL, '$2y$10$OTKxX6XX2g2oeJXUaqt11uuuTPq7aLTnvPF4Xez.ZtBG402SR346i', 'ouJ98D7FNgfzq7f6lXg5U4Qn0aSubv', '2022-08-09 23:34:40', '2022-08-09 23:34:40', '01834920142'),
-(12, 'nickname', 'ka42@gmail.com', NULL, NULL, '$2y$10$gnqaDG0NmcgZuF550U6zC.2RcbBOKPDToS8mAcHJEveBadg9Wyhba', 'UAx1CvZ8JNdl5aTQPMtVuBmpUv5RP1', '2022-08-10 00:04:14', '2022-08-10 00:04:14', '01834920142'),
-(13, 'nickname', 'kaziar42@gmail.com', '2022-08-15 07:14:12', NULL, '$2y$10$WXcPPjbDN63VKv.Qmmej3OQTh5RYSAV/D0Puow2orp/mpucqblaey', '', '2022-08-10 07:24:58', '2022-08-15 07:14:12', '01834920142'),
-(14, 'nickname', 'abdurrahman890000@gmail.com', '2022-08-10 08:41:28', NULL, '$2y$10$9t0991f3HwagMQDC.5el8urFdis8dqOtIl9vYCg2KR6nOXjYpKa16', '', '2022-08-10 07:56:03', '2022-08-10 08:41:28', '01834920142'),
-(15, 'auntor sheikh', 'brownauntor@gmail.com', NULL, NULL, '$2y$10$rgFrl4xRT40L9nBhWmqXEOSvl8T1WljUzt9KzbXSMr6JuxcnkYTdG', 'VwLx28gVJ65jZTnXr9DlCLlkFnFGmy', '2022-08-10 11:31:49', '2022-08-10 11:31:49', '01834920142'),
-(16, 'sifat khan', 'sifatk69@gmail.com', NULL, NULL, '$2y$10$EGRclcxEVhBLQH8CGce.Zedz9Vz..dORWWyFNA8iUzPkEva1TGvE6', 'mLaCSgLSqAn27yVb8XbWnf0pjSf7Rm', '2022-08-10 11:32:35', '2022-08-10 11:32:35', '01834920142');
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`, `phone`, `image`, `gender`) VALUES
+(18, 'misty akter', 'mistyakter89000@gmail.com', '2022-09-19 06:16:14', 'admin', '$2y$10$x..t5/QP/JFt2y8SuBPptOPpJQ35lba3E/1oQafqiOdPYC2QQIQga', '', '2022-09-19 06:15:14', '2022-09-19 06:16:14', '01722222222', NULL, 'f'),
+(19, 'md shrabon', 'kaziar42@gmail.com', '2022-09-19 06:27:29', 'admin', '$2y$10$hg7cqZxCyidrCgFpL5x8OeQL14TSTx9YJFB35XcZPh6ZVWIl3VwK.', '', '2022-09-19 06:27:18', '2022-09-20 02:56:54', '01715550341', NULL, 'm');
 
 -- --------------------------------------------------------
 
@@ -114,33 +116,7 @@ CREATE TABLE `banks` (
 --
 
 INSERT INTO `banks` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(11, 'abdur rahman kazi', 'banks/1661524775.png', '2022-08-26 08:39:16', '2022-08-26 08:39:35');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `chat`
---
-
-CREATE TABLE `chat` (
-  `id` int(11) NOT NULL,
-  `message` text NOT NULL,
-  `from` varchar(128) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `chat`
---
-
-INSERT INTO `chat` (`id`, `message`, `from`, `created`) VALUES
-(1, 'hi', 'suba', '2021-03-24 19:52:16'),
-(2, 'i am srabon', 'abdur rahman kazi', '2021-03-24 19:53:46'),
-(3, 'HLW', 'a', '2021-03-24 20:32:55'),
-(4, 'hhh', 'ddd', '2021-03-24 21:05:14'),
-(5, '1', 'ddd', '2021-03-24 21:05:19'),
-(6, '3', 'ddd', '2021-03-24 21:05:22'),
-(21, 'fdfdf', 'eva', '2021-03-30 02:26:00');
+(11, 'brac', 'banks/1661524775.png', '2022-08-26 08:39:16', '2022-08-26 08:39:35');
 
 -- --------------------------------------------------------
 
@@ -161,9 +137,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Call us', '09611123123 || 09611123123', NULL, NULL),
+(1, 'Call us', '096||09611123123', NULL, '2022-09-20 08:56:12'),
 (2, 'Email', '09611123123 || 09611123123', NULL, NULL),
-(3, 'Our Corporate Office', '09611123123 || 09611123123', NULL, NULL);
+(3, 'Our Corporate Office', 'Amber IT Ltd. Navana Tower (7th Floor) || 45 Gulshan South C/A, Circle-1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,6 +155,16 @@ CREATE TABLE `corporate_internets` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `corporate_internets`
+--
+
+INSERT INTO `corporate_internets` (`id`, `name`, `icon_name`, `items`, `created_at`, `updated_at`) VALUES
+(2, 'abdur rahma', 'era', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-09-10 10:24:11'),
+(3, 'Cloud IP-PBX', 'fa-connectdevelop', 'Enjoy free PBX system by connecting to our IP-PBX platform||Zero CapEx||Scalable depending on your staffing needs', '2022-09-10 10:53:24', '2022-09-10 10:53:24'),
+(4, 'abdur rahma', 'era', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-09-10 10:24:11'),
+(5, 'Cloud IP-PBX', 'fa-connectdevelop', 'Enjoy free PBX system by connecting to our IP-PBX platform||Zero CapEx||Scalable depending on your staffing needs', '2022-09-10 10:53:24', '2022-09-10 10:53:24');
 
 -- --------------------------------------------------------
 
@@ -231,7 +217,10 @@ INSERT INTO `districts` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (7, 'Barishal', '2022-08-28 12:10:28', '2022-08-28 12:10:28'),
 (8, 'Rangpur', '2022-08-28 12:10:33', '2022-08-28 12:10:33'),
 (9, 'Mymensingh', '2022-08-28 12:10:36', '2022-08-28 12:10:36'),
-(10, 'About', '2022-08-30 23:16:52', '2022-08-30 23:16:52');
+(11, 'pabna', '2022-09-20 12:45:38', '2022-09-20 12:47:55'),
+(12, 'abdur rahman kazi', '2022-09-20 12:52:34', '2022-09-20 12:52:34'),
+(13, 'md shrabon', '2022-09-20 12:52:41', '2022-09-20 12:52:41'),
+(14, 'Brand_name', '2022-09-20 12:52:46', '2022-09-20 12:52:46');
 
 -- --------------------------------------------------------
 
@@ -248,6 +237,29 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ip_phones`
+--
+
+CREATE TABLE `ip_phones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `items` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ip_phones`
+--
+
+INSERT INTO `ip_phones` (`id`, `name`, `image`, `items`, `created_at`, `updated_at`) VALUES
+(2, 'nick arname', 'banks/1663173292.png', 'gfhghf ghfgh||2 AM-8 PM - 20 Mbp||Enjoy free PBX system by connecting to our IP-PBX platform', '2022-09-14 10:34:52', '2022-09-14 10:41:24'),
+(3, 'abdur rahman kazi', 'banks/1663179982.jpg', '2 AM-8 PM - 20 Mbp||rrt||gfhghf ghfgh', '2022-09-14 12:26:22', '2022-09-14 12:26:22');
 
 -- --------------------------------------------------------
 
@@ -279,7 +291,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2022_08_17_214644_create_account_infos_table', 4),
 (15, '2022_08_26_164040_create_contacts_table', 5),
 (16, '2022_08_26_170901_create_abouts_table', 6),
-(17, '2022_08_31_062156_create_corporate_internets_table', 7);
+(17, '2022_08_31_062156_create_corporate_internets_table', 7),
+(18, '2022_09_14_153711_create_ip_phones_table', 8),
+(19, '2022_09_16_132319_create_social_media_table', 9),
+(20, '2022_09_17_125754_create_sliders_table', 10),
+(21, '2022_09_19_140911_create_pages_table', 11);
 
 -- --------------------------------------------------------
 
@@ -302,7 +318,28 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `title`, `mb`, `tk`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'abdur rahman kazi', 20, 234, 'gfhghf ghfgh||rrt||2 AM-8 PM - 20 Mbps.', '2022-08-27 10:34:26', '2022-08-27 10:34:26');
+(1, 'abdur rahman kazi', 20, 239, '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbps.', '2022-08-27 10:34:26', '2022-09-10 09:15:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(2, 'md shrabon me', '<p>dszfasf tfhdfxh dasgfds i am a man</p>', '2022-09-19 10:43:35', '2022-09-20 02:45:54');
 
 -- --------------------------------------------------------
 
@@ -315,6 +352,18 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('mistyakter89000@gmail.com', '16635208066948242', '2022-09-18 11:06:46'),
+('mistyakter89000@gmail.com', '16635208737296974', '2022-09-18 11:07:53'),
+('mistyakter89000@gmail.com', '16635216548457930', '2022-09-18 11:20:54'),
+('mistyakter89000@gmail.com', '16635217371666308', '2022-09-18 11:22:17'),
+('tasnim.plabon@northsoouth.edu', '16635275488966589', '2022-09-18 12:59:08'),
+('tasnim.plabon@northsouth.edu', '16635275788948948', '2022-09-18 12:59:38');
 
 -- --------------------------------------------------------
 
@@ -355,6 +404,49 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'sliders/1663423477.jpg', '2022-09-17 08:04:37', '2022-09-17 08:04:37'),
+(3, 'sliders/1663425442.jpg', '2022-09-17 08:37:22', '2022-09-17 08:37:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `social_media`
+--
+
+CREATE TABLE `social_media` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `social_media`
+--
+
+INSERT INTO `social_media` (`id`, `name`, `icon`, `link`, `created_at`, `updated_at`) VALUES
+(2, 'facebook official', 'facebook-official', 'http://127.0.0.1:8000/admin/social_media', '2022-09-16 09:35:18', '2022-09-16 09:35:18');
 
 -- --------------------------------------------------------
 
@@ -411,12 +503,6 @@ ALTER TABLE `banks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -449,6 +535,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `ip_phones`
+--
+ALTER TABLE `ip_phones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -458,6 +550,12 @@ ALTER TABLE `migrations`
 -- Indexes for table `packages`
 --
 ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -481,6 +579,18 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `social_media`
+--
+ALTER TABLE `social_media`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -501,25 +611,19 @@ ALTER TABLE `abouts`
 -- AUTO_INCREMENT for table `account_infos`
 --
 ALTER TABLE `account_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `chat`
---
-ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -531,7 +635,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `corporate_internets`
 --
 ALTER TABLE `corporate_internets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `coverages`
@@ -543,7 +647,7 @@ ALTER TABLE `coverages`
 -- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -552,16 +656,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ip_phones`
+--
+ALTER TABLE `ip_phones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pays`
@@ -574,6 +690,18 @@ ALTER TABLE `pays`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `social_media`
+--
+ALTER TABLE `social_media`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

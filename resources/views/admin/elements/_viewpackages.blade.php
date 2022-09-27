@@ -16,12 +16,17 @@
         <td >{{ $item->tk }}</td>
         <td >{{ $item->description }}</td>
         <td>
+          @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
           <x-modal 
             type="editmodal" 
             route="package.update,package=>{{ $item->id }}" 
-            title="Edit Data" id="{{ $item->id }}" /> ||
-            <button class="btn btn-danger" onclick="deleteData('{{ route('package.destroy',['id'=>$item->id]) }}')">
+            title="Edit Data" id="{{ $item->id }}" />
+            @endif
+             ||
+            @if (Auth::user()->role === 'admin')
+              <button class="btn btn-danger" onclick="deleteData('{{ route('package.destroy',['id'=>$item->id]) }}')">
             Delete</button>
+            @endif
         </td>
       </tr>   
     @endforeach

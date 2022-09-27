@@ -5,11 +5,6 @@
           {{ Session::get('error') }}
       </div>
     @endif
-    @if (Session::get('success'))
-      <div class="alert alert-success">
-          {{ Session::get('success') }}
-      </div>
-    @endif
     
     <form action="{{ route('district.store') }}" class="p-3 border border-3" method="post">
       @csrf

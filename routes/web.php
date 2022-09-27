@@ -31,6 +31,7 @@ Route::get('/coverage',[App\Http\Controllers\Guest\CoverageController::class, 'i
 Route::post('/coverage/ajax',[App\Http\Controllers\Guest\CoverageController::class, 'getAreaByCountry'])->name('guest.ajax.get-area-by-country-type');
 Route::get('/pay',[App\Http\Controllers\Guest\PayController::class, 'index'])->name('guest.pay');
 Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contacts');
+Route::post('/contacts/email',[App\Http\Controllers\Guest\ContactController::class, 'contactThroughEmail'])->name('guest.contacts.email');
 Route::get('/ip_phones',[App\Http\Controllers\Guest\IphoneController::class, 'index'])->name('guest.ipphones');
 Route::get('/about',[App\Http\Controllers\Guest\AboutController::class, 'index'])->name('guest.about');
 
@@ -79,5 +80,6 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::view('/profile','admin.pages.profile')->name('admin.profile');
 		Route::put('/profile/{id}',[App\Http\Controllers\Admin\UserController::class, 'profileupdate'])->name('profile.update');
 		Route::post('/profile/changepassword',[App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('profile.changepassword');
+		Route::resource('/pages',App\Http\Controllers\Admin\PageController::class);
 	});
 });

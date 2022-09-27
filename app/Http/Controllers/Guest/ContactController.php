@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -80,8 +82,32 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function contactThroughEmail(Request $request){
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+        try {
+
+           Mail::to('abdurrahman890000@gmail.com')->send(new ContactMail([
+            'name' => $request->firstname .' '. $request->lastname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+           ]));
+
+
+       } catch (\Exception $exception) {
+           return redirect()->back()
+               ->with('failed', 'Register operation failed. Cause '.$exception->getMessage());
+       }  
+
+       return redirect()->back()->withInput()
+           ->with('success', 'Thank you for contact us. We will email you about your query');
     }
 }

@@ -1,0 +1,8 @@
+.activemenu,#mainmenu li:hover{
+    background: cadetblue;
+    padding: 2px;
+    margin-bottom: -10px;
+}
+.activemenu a{
+    color:#fff;
+}

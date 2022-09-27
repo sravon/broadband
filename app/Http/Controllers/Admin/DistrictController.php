@@ -93,7 +93,7 @@ class DistrictController extends Controller
         $district = District::find($request->id);
         $district->name = $request->name;
         if($district->save()){
-            return back()->with('successed','Data update successfull');
+            return back()->with('success','Data update successfull');
         }else{
             return back()->with('fail','query failed');
         }

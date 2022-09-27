@@ -33,7 +33,10 @@
                 <div class="mb-3 row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
+                        <div class="d-flex align-items-center">
+                            <p class="bg-secondary p-2 mb-2" style="margin-top: 8px;">+88</p>
+                            <input type="text" maxlength="11" class="form-control rounded-0" name="phone" value="{{ old('phone') }}" style="height: 38px">
+                        </div>
                         <span class="text-light">@error('phone'){{ $message }} @enderror</span>
                     </div>
                 </div>
@@ -48,6 +51,7 @@
                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="f">
                             <label class="form-check-label" for="inlineRadio2">Female</label>
                         </div>
+                        <span class="text-light">@error('gender'){{ $message }} @enderror</span>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -55,6 +59,13 @@
                     <div class="col-sm-10">
                         <input type="password" class="form-control" name="password" >
                         <span class="text-light">@error('password'){{ $message }} @enderror</span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="confirm_password" >
+                        <span class="text-light">@error('confirm_password'){{ $message }} @enderror</span>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>

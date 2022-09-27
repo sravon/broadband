@@ -13,12 +13,13 @@ class Input extends Component
     public $inputvalue;
     public $id;
     public $readonly;
+    public $maxlengthv;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label,$name,$place=null,$datatype=null,$inputvalue=null,$readonly=false,$id=null)
+    public function __construct($label,$name,$place=null,$datatype=null,$inputvalue=null,$readonly=false,$id=null,$maxlengthv=null)
     {
         $this->label = $label;
         $this->name = $name;
@@ -27,6 +28,7 @@ class Input extends Component
         $this->inputvalue = $inputvalue;
         $this->readonly = $readonly;
         $this->id = $id;
+        $this->maxlengthv = $maxlengthv;
     }
 
     /**

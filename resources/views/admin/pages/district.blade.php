@@ -4,7 +4,10 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">District List</h2>
     <div class="row">
       @include('admin.elements._viewdistrict')
+        
+      @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
         @include('admin.elements._adddistrict')
+      @endif
     </div>
 </div>
 @endsection
@@ -40,7 +43,7 @@ function deleteData(id){
 @endsection
 @section('jquery')
   
-  $('.editbtn').on('click',function(){
+  $(document).on('click','.editbtn',function(){
     $('#editmodal').modal('show');
     $tr = $(this).closest('tr');
     let id = $(this).attr('id');

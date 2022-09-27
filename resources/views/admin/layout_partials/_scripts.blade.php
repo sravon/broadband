@@ -17,6 +17,16 @@
     if (host_url === '127.0.0.1') {
         host_url ='http://'+host_url+ ':8000'
     }
+    if('{{ Session::get('success') }}'){
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '{{ Session::get('success') }}',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
     function deleteData(routing){
         Swal.fire({
             title: 'Are you sure?',
@@ -50,6 +60,9 @@
 			$('#sidebar').toggleClass('active');
 			$('#content').toggleClass('activecontent');
 		})
+        $('#page').on('click', function(){
+            $("#subitem").toggleClass('displayshowhide');
+        })
         @yield('jquery')
 	})
     

@@ -17,13 +17,18 @@
           <td>{{ $item->role }}</td>
           <td>{{ $item->phone }}</td>
           <td>
+          @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
             <x-modal 
               type="editmodal" 
               route="users.update,user=>{{ $item->id }}"
-              title="Approval Form" id="{{ $item->id }}" /> ||
+              title="Approval Form" id="{{ $item->id }}" />
+          @endif
+              ||
+            @if (Auth::user()->role === 'admin')
               <button class="btn btn-danger" 
                 onclick="deleteData('{{ route('users.destroy',['user'=>$item->id]) }}')">
               Delete</button>
+            @endif
           </td>
         </tr>   
       @endforeach

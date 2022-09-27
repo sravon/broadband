@@ -6,6 +6,7 @@
         name="{{ $name }}"  
         @if ($readonly) {{ "readonly disabled" }} @endif
         value="{{ isset($inputvalue) ? $inputvalue :old($name) }}"
+        maxlength="{{ isset($maxlengthv) ? $maxlengthv : null }}"
         placeholder="{{isset($place) ? $place : ''}}"
       >
       <span class="text-danger">

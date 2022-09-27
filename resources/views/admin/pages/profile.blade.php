@@ -115,7 +115,7 @@
 		
 		check +=`<img src="${host_url}/{{Auth::user()->image}}" alt="banks" width="100">`
 		check +=`<x-input name="image" datatype="file" label="Change profile image" />`
-		check +=`<x-input maxlength="11" name="phone" label="Your phone number" inputvalue="{{ Auth::user()->phone }}" />`
+		check +=`<x-input maxlengthv="11" name="phone" label="Your phone number" inputvalue="{{ Auth::user()->phone }}" />`
 		check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
 		$("#editdata").html(check);
 	})

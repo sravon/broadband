@@ -15,12 +15,17 @@
           <td>{{ $pay->name }}</td>
           <td><img width="50" src="{{ asset($pay->image) }}" alt=""></td>
           <td data-image="{{ $pay->image }}" >
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
             <x-modal 
               type="editmodal" 
               route="pays.update,pay=>{{ $pay->id }}" 
-              title="Edit Data" id="{{ $pay->id }}"/> ||
+              title="Edit Data" id="{{ $pay->id }}"/>
+            @endif
+              ||
+            @if (Auth::user()->role === 'admin')
               <button class="btn btn-danger" onclick="deleteData('{{ route('pays.destroy',['pay'=>$pay->id]) }}')">
               Delete</button>
+            @endif
           </td>
         </tr>   
       @endforeach

@@ -15,7 +15,7 @@
       @csrf
       <x-input name="name" label="Your Name" place="Enter your Name"/>
       <x-input name="address" label="Your address" place="Enter your address"/>
-      <x-formselect name="district">
+      <x-formselect id="district" name="district" label="Districts">
         @foreach ($districts as $item)
         <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
         @endforeach

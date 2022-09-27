@@ -15,7 +15,7 @@
       @csrf
       <x-input name="name" label="Your Name" place="Enter your Name"/>
       <x-input name="ac_no" label="Your Account no" place="Enter Account No"/>
-      <x-formselect name="bank">
+      <x-formselect name="bank" id="bank" label="bank Name">
         <option value="11">11</option>
         <option value="12">12</option>
       </x-formselect>

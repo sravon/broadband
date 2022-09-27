@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -71,7 +72,24 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+        
+        if($validator->fails()){
+            return back()->with('fail',$validator->errors()->first());
+        }
+
+        $contact = Contact::find($request->id);
+        $contact->title = $request->name;
+        $contact->description = implode("||",$request->description);
+        
+        if($contact->save()){
+            return back()->with('successed','Data update successfull');
+        }else{
+            return back()->with('fail','query failed');
+        }
     }
 
     /**
