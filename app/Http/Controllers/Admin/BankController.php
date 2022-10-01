@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountInfo;
 use App\Models\Bank;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class BankController extends Controller
         $bank->image = $request->image->storeAs('banks', $imageName);
         
         if($bank->save()){
-            return back()->with('success','New Package Register Success');
+            return back()->with('success','Added Success');
         }else{
             return back()->with('fail','Something went to wrong,try again later');
         }
@@ -128,10 +129,17 @@ class BankController extends Controller
      */
     public function destroy($bank)
     {
-        $dlt = Bank::find($bank);
-        $rst = $dlt->delete();
-        if($rst){
-            return response( "Delete Successfull" , 200);
-        }
+            $checkbank = AccountInfo::where('bank_id', $bank)->first();
+            if($checkbank){
+                return response(["error" => "You Can't delete this. If you want to delete this, you need to delete child components(account) first, then you can delete this" ], 200);
+            }
+            $dlt = Bank::find($bank);
+            $rst = $dlt->delete();
+            if($rst){
+                return response( "Delete Successfull" , 200);
+            }else{
+                return response( "Delete Error" , 400);
+            }
+        
     }
 }

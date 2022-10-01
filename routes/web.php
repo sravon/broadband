@@ -34,6 +34,7 @@ Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'in
 Route::post('/contacts/email',[App\Http\Controllers\Guest\ContactController::class, 'contactThroughEmail'])->name('guest.contacts.email');
 Route::get('/ip_phones',[App\Http\Controllers\Guest\IphoneController::class, 'index'])->name('guest.ipphones');
 Route::get('/about',[App\Http\Controllers\Guest\AboutController::class, 'index'])->name('guest.about');
+Route::get('/pages/{id}',[App\Http\Controllers\Guest\IndexController::class, 'page'])->name('guest.page');
 
 
 // Auth::routes();
@@ -81,5 +82,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::put('/profile/{id}',[App\Http\Controllers\Admin\UserController::class, 'profileupdate'])->name('profile.update');
 		Route::post('/profile/changepassword',[App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('profile.changepassword');
 		Route::resource('/pages',App\Http\Controllers\Admin\PageController::class);
+		Route::resource('/settings',App\Http\Controllers\Admin\SettingController::class);
+		Route::post('/updatefeatureimage/{id}',[App\Http\Controllers\Admin\SettingController::class,'updateFeatureImage'])->name('admin.updatefeatureimage');
 	});
 });

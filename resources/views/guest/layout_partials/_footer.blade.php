@@ -12,6 +12,9 @@
         <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.package') }}">Home Internet</a></p>
         <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.corporateinternet') }}">Corporate Internet</a></p>
         <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.ipphones') }}">Ip Phone</a></p>
+        @foreach ($commondata->pages as $item)
+        <p class="h6"><a class="nav-link text-muted" href="{{ route('guest.page',['id' => $item->id ]) }}">{{ $item->name }}</a></p>
+        @endforeach
       </div>
       <div class="col-md-4">
         <h4 class="w-50 mx-auto text-light border border-top-0 border-start-0 border-end-0 border-danger border-3 p-2">Contact</h4>

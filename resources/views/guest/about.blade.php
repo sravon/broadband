@@ -4,7 +4,7 @@
 <x-feature title="About" name="assets/logo/slide1.jpg" />
 <section class="container-fluid container mt-2">
     <div class="w-75 mx-auto bg-secondary p-5 text-light">
-        <h3 class="text-center fw-bold">Welcome To Broacast</h3>
+        <h3 class="text-center fw-bold">Welcome To {{ $commondata->setting->name }}</h3>
         <div class="bg-danger w-25 mx-auto" style="height: 2px;"></div>
         <p>{!! $about->description !!}</p>
     </div>

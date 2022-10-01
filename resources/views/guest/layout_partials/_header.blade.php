@@ -5,8 +5,16 @@
         <div class="col-md-6">
           <div class="info">
             <ul class="nav nav-pills">
-              <li class="nav-item"><a href="" class="nav-link disabled text-dark"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-              <li class="nav-item"><a href="" class="nav-link disabled text-dark"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+              @for ($i = 1; $i < count($commondata->contacts); $i++)
+                @php
+                  $des_array = explode("||",$commondata->contacts[$i]->description);
+                @endphp
+                @foreach ($des_array as $element)
+                  <li class="nav-item">
+                    <a class="nav-link disabled text-dark"><i class="fa fa-{{ $i == 2 ? 'phone' : 'envelope'  }}"></i> {{ $element }}</a>
+                  </li>
+                @endforeach
+              @endfor
             </ul>
           </div>
           
@@ -27,9 +35,9 @@
     </div>
 </div><!--/header_top-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ps-lg-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top px-lg-5">
     <a class="navbar-brand" href="/">
-      <img class="img-fluid mx-auto" src="{{ asset('assets/logo/bcl.png') }}" width="100">
+      <img class="img-fluid mx-auto" src="{{ asset($commondata->setting->logo) }}" width="200" height="60">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,6 +64,9 @@
         </li>
         <li class="nav-item {{ (request()->is('contacts')) ? 'activemenu' : '' }}">
           <a class="nav-link" href="{{ route('guest.contacts') }}">Contacts</a>
+        </li>
+        <li class="nav-item {{ (request()->is('about')) ? 'activemenu' : '' }}">
+          <a class="nav-link" href="{{ route('guest.about') }}">About</a>
         </li>
       </ul>
     </div>

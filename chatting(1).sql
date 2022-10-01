@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2022 at 06:37 AM
+-- Generation Time: Oct 01, 2022 at 05:11 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -42,7 +42,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `title`, `mission`, `vision`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\nse focus is on solidly addressing businesses\' communications requirements.', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\nse focus is on solidly addressing businesses\' communications requirements.', '<p><strong><em>BCL Online Limited (BCLOL) is an</em></strong> innovation house offering IT enabled services, virtualization, custom solutions in selected platforms. BCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions. Being in the middle of all IT services offered by various companies, BCLOL had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together. Since forming, BCLOL has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers. Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.. Amber IT is not simply another link in the chain of voice and data supply in the Bangladesh. Our pioneering spirit is evidenced by the creation of a national, fully resilient, MPLS network and the continuous testing and adoption of emerging communications platforms. As a result, we have earned the reputation of a communications provider whose focus is on solidly addressing businesses&#39; communications requirements.</p>', NULL, '2022-08-31 00:47:48');
+(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\r\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\r\nse focus is on solidly addressing businesses\' communications requirements.', NULL, '<p>BCL Online Service (BCLOS) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.</p>\r\n\r\n<p>BCLOS offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.</p>\r\n\r\n<p>Being in the middle of all IT services offered by various companies, BCLOS had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together.</p>\r\n\r\n<p>Since forming, BCLOS has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers.</p>\r\n\r\n<p>Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.</p>', NULL, '2022-09-29 10:08:19');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `account_infos` (
 --
 
 INSERT INTO `account_infos` (`id`, `name`, `bank_id`, `ac_no`, `r_no`, `branch`, `created_at`, `updated_at`) VALUES
-(2, 'abdur rahman kazi', 11, 324234232423423, 436345, 'comilla', '2022-09-14 15:09:41', '2022-09-14 15:09:41');
+(2, 'abdur rahman kazi', 12, 324234232423423, 436345, 'comilla', '2022-09-14 15:09:41', '2022-09-14 15:09:41');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `banks` (
 --
 
 INSERT INTO `banks` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(11, 'brac', 'banks/1661524775.png', '2022-08-26 08:39:16', '2022-08-26 08:39:35');
+(12, 'abdur rahman kazi', 'banks/1664477579.jpg', '2022-09-29 12:52:59', '2022-09-29 12:52:59');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Call us', '096||09611123123', NULL, '2022-09-20 08:56:12'),
-(2, 'Email', '09611123123 || 09611123123', NULL, NULL),
+(2, 'Email', 'kaziar42@gmail.com || arr@gmail.com', NULL, NULL),
 (3, 'Our Corporate Office', 'Amber IT Ltd. Navana Tower (7th Floor) || 45 Gulshan South C/A, Circle-1', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -241,6 +241,27 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `featureimages`
+--
+
+CREATE TABLE `featureimages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `featureimages`
+--
+
+INSERT INTO `featureimages` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'package', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ip_phones`
 --
 
@@ -295,7 +316,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2022_09_14_153711_create_ip_phones_table', 8),
 (19, '2022_09_16_132319_create_social_media_table', 9),
 (20, '2022_09_17_125754_create_sliders_table', 10),
-(21, '2022_09_19_140911_create_pages_table', 11);
+(21, '2022_09_19_140911_create_pages_table', 11),
+(23, '2022_09_28_130101_create_settings_table', 12),
+(25, '2022_09_30_082601_create_featureimages_table', 13);
 
 -- --------------------------------------------------------
 
@@ -404,6 +427,30 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `keywords`, `logo`, `icon`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'BCL Online Service', 'Internet Service Provider in Bangladesh, isp in bangladesh, isp in dhaka, isp in bd', 'logo/16644662751664462799logo.jpeg', 'logo/166446627516644661811664462475fevicon.png', 'Discover the joy of super-fast Internet access at home with BCL Online Service (BCLOS). We offer super speed Optical Fiber Home Internet Connectivity with Real IP. See our fibre broadband plans for your home now.', NULL, '2022-09-29 09:44:35');
 
 -- --------------------------------------------------------
 
@@ -535,6 +582,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `featureimages`
+--
+ALTER TABLE `featureimages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ip_phones`
 --
 ALTER TABLE `ip_phones`
@@ -577,6 +630,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sliders`
@@ -623,7 +682,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -656,6 +715,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `featureimages`
+--
+ALTER TABLE `featureimages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `ip_phones`
 --
 ALTER TABLE `ip_phones`
@@ -665,7 +730,7 @@ ALTER TABLE `ip_phones`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `packages`
@@ -690,6 +755,12 @@ ALTER TABLE `pays`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sliders`

@@ -42,8 +42,8 @@
       </div>
       <div class="col-md-6 rightP">
         <div class="hovering">
-          <a href="#">
-            <img src="{{ asset('assets/logo/apoin.svg') }}">
+          <a href="{{ route('guest.package') }}">
+            <img src="{{ asset('assets/logo/internet-speed.png') }}">
           </a>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="col-md-6 ">
         <div class="hovering">
           <a href="#">
-            <img src="{{ asset('assets/logo/ambulance.svg') }}">
+            <img src="{{ asset('assets/logo/corporate.png') }}">
           </a>
         </div>
       </div>
@@ -86,13 +86,12 @@
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>World Class Reliability</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Optical Fiber Network</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Symmetrical Upload & Download Speeds</p>
-          <button class="btn btn-outline-success mt-4">View all</button>
         </div>
       </div>
       <div class="col-md-6 rightP">
         <div class="hovering">
-          <a href="#">
-            <img src="{{ asset('assets/logo/apoin.svg') }}">
+          <a href="/">
+            <img src="{{ asset('assets/logo/connect.png') }}" height="400">
           </a>
         </div>
       </div>

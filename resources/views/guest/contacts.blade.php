@@ -63,28 +63,6 @@
                 @foreach ($contacts as $item)
                     <x-contact title="{{ $item->title }}" array="{{ $item->description }}" />
                 @endforeach
-                <div class="row border shadow-sm m-1 p-2">
-                    <div class="col-md-3">
-                        <div class="text-danger ps-4 pt-4" style="font-size:60px"><i class="fa fa-connectdevelop" aria-hidden="true"></i></div>
-                    </div>
-                    <div class="col-md-9 text-left">
-                        <h3 class="fw-bold">Email</h3>
-                        <hr>
-                        <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
-                        <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
-                    </div>
-                </div>
-                <div class="row border shadow-sm m-1 p-2">
-                    <div class="col-md-3">
-                        <div class="text-danger ps-4 pt-4" style="font-size:60px"><i class="fa fa-connectdevelop" aria-hidden="true"></i></div>
-                    </div>
-                    <div class="col-md-9 text-left">
-                        <h3 class="fw-bold">Our Corporate Office</h3>
-                        <hr>
-                        <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
-                        <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -15,6 +15,7 @@
           <td>{{ $item->name }}</td>
           <td>{!! $item->description !!}</td>
           <td>
+            <a target="_blank" class="btn btn-secondary" href="{{ route('guest.page',['id' => $item->id ]) }}">View</a>
             @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
               <a class="btn btn-primary" href="?source=edit&id={{ $item->id }}">Edit</a>
             @endif

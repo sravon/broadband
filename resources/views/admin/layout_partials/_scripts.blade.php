@@ -45,8 +45,12 @@
                 headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
                 url: routing,
                 success: function (data) {
-                //  Swal.fire('Deleted!', data, 'success')
-                    window.location.reload();
+                    if(data.error){
+                        alert(data.error)
+                    }else{
+                        
+                        window.location.reload();
+                    }
                 }
             });
         }

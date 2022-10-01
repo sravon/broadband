@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Featureimage;
 use App\Models\Package;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -17,8 +18,10 @@ class PackageController extends Controller
      */
     public function index(){
         $packages = Package::all();
-        return view('admin.pages.package',['packages' => $packages]);
-        //return view('guest.package',compact('packages'));
+        return view('admin.pages.package',[
+            'packages' => $packages,
+            'featureimage' => Featureimage::where('name', 'package')->first()
+        ]);
     }
 
     /**

@@ -9,8 +9,7 @@
             $arr = explode("||",$array);
         @endphp
         @foreach ($arr as $item)
-            <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
+            <p class="ps-2"><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>{{$item}}</p>
         @endforeach
-        <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>09611123123</p>
     </div>
 </div>
