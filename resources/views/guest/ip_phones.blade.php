@@ -23,7 +23,6 @@
                     @endforeach
                 </ul>
                 <br>
-                <button class="mx-auto d-block btn btn-outline-danger">Check now <span class="badge badge-danger">$3</span></button>
             </div>
         </div>
     @else
@@ -38,7 +37,6 @@
                     @endforeach
                 </ul>
                 <br>
-                <button class="mx-auto d-block btn btn-outline-danger">Check now <span class="badge badge-danger">$3</span></button>
             </div>
             <div class="col-md-6">
                 <div class="carousel-item active">

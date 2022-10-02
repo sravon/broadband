@@ -24,4 +24,6 @@
       <x-input name="phone" label="Your phone number" place="Enter your phone"/>
       <button class="btn btn-success" type="submit">Submit</button>
     </form>
+    <hr>
+    <x-admin.featureimage image="{{$featureimage->image}}" id="{{ $featureimage->id }}"/>
 </div>

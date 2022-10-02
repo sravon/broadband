@@ -19,7 +19,7 @@
       return $(this).text();
     }).get();
     
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<x-input readonly="true" name="name" label="User Name" inputvalue="${data[0]}" />`
     check +=`<x-input readonly="true" name="email" label="Email name" inputvalue="${data[1]}" />`
     check +=`<x-input readonly="true" name="phone" label="Phone number" inputvalue="${data[3]}" />`

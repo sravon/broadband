@@ -22,7 +22,7 @@
     var data = $tr.children("td").map(function () {
       return $(this).text();
     }).get();
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<img src="${host_url}/${image}" alt="banks" width="200">`
     check +=`<x-input name="image" datatype="file" label="Slider image" />`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`

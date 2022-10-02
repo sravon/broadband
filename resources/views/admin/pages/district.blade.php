@@ -52,7 +52,7 @@ function deleteData(id){
       return $(this).text();
     }).get();
     
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<x-input name="name" label="District Name" inputvalue="${data[0]}" />`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
     $("#editdata").html(check);

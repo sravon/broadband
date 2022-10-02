@@ -106,7 +106,7 @@
 		$tr = $(this).closest('tr');
 		let id = $(this).attr('id');
 		console.log(id);
-		let check =`<input type="text" name="id" value="${id}">`
+		let check =`<input type="hidden" name="id" value="${id}">`
 		check +=`<x-input name="name" label="Your Name" inputvalue="{{ Auth::user()->name }}" />`
 		
 		check +=`<label class="fw-bold" for="Gender">Gender</label>`

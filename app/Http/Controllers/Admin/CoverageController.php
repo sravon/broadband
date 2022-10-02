@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Coverage;
 use App\Models\District;
+use App\Models\Featureimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,7 +14,11 @@ class CoverageController extends Controller
     public function index(){
         $coverages = Coverage::all();
         $districts = District::all();
-        return view('admin.pages.coverage',['coverages' => $coverages,'districts' => $districts]);
+        return view('admin.pages.coverage',[
+            'coverages' => $coverages,
+            'districts' => $districts,
+            'featureimage' => Featureimage::where('name', 'coverage')->first()
+        ]);
     }
 
     public function store(Request $request)

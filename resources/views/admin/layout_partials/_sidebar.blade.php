@@ -19,6 +19,9 @@
         <li class="{{ (request()->is('admin/coverage')) ? 'active' : '' }}">
             <a href="{{ route('admin.coverage') }}"><i class="fa fa-map"></i>Coverage</a>
         </li>
+        <li class="{{ (request()->is('admin/iphones')) ? 'active' : '' }}">
+            <a href="{{ route('iphones.index') }}"><i class="fa fa-map"></i>Ip Phone</a>
+        </li>
         <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}">
             <a href="{{ route('district.index') }}"><i class="fa fa-diamond"></i>District</a>
         </li>
@@ -39,6 +42,9 @@
         </li>
         <li class="{{ (request()->is('admin/about')) ? 'active' : '' }}">
             <a href="{{ route('about.index') }}"><i class="fa fa-address-book-o"></i>About</a>
+        </li>
+        <li class="{{ (request()->is('admin/sliders')) ? 'active' : '' }}">
+            <a href="{{ route('sliders.index') }}"><i class="fa fa-address-book-o"></i>Sliders</a>
         </li>
         <li class="{{ (request()->is('admin/social_media')) ? 'active' : '' }}">
             <a href="{{ route('social_media.index') }}"><i class="fa fa-globe"></i>Social Media</a>

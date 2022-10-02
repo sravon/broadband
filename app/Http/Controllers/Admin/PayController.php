@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Featureimage;
 use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -18,7 +19,10 @@ class PayController extends Controller
     public function index()
     {
         $pay = Pay::all();
-        return view('admin.pages.pays',['pays' => $pay]);
+        return view('admin.pages.pays',[
+            'pays' => $pay,
+            'featureimage' => Featureimage::where('name', 'pay')->first()
+        ]);
     }
 
     /**

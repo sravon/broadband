@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2022 at 05:11 AM
+-- Generation Time: Oct 02, 2022 at 07:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -42,7 +42,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `title`, `mission`, `vision`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\r\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\r\nse focus is on solidly addressing businesses\' communications requirements.', NULL, '<p>BCL Online Service (BCLOS) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.</p>\r\n\r\n<p>BCLOS offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.</p>\r\n\r\n<p>Being in the middle of all IT services offered by various companies, BCLOS had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together.</p>\r\n\r\n<p>Since forming, BCLOS has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers.</p>\r\n\r\n<p>Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.</p>', NULL, '2022-09-29 10:08:19');
+(1, 'About', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\r\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\r\nse focus is on solidly addressing businesses\' communications requirements.', 'BCL Online Limited (BCLOL) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.\r\nBCLOL offers full design and integration , specialized managed services and solutions, server virtualization, network security & optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.\r\nse focus is on solidly addressing businesses\' communications requirements.', '<p>BCL Online Service (BCLOS) is an innovation house offering IT enabled services, virtualization, custom solutions in selected platforms.</p>\r\n\r\n<p>BCLOS offers full design and integration , specialized managed services and solutions, server virtualization, network security &amp; optimization based on hardware and software tools, application integration and mobilization and tailored business solutions.</p>\r\n\r\n<p>Being in the middle of all IT services offered by various companies, BCLOS had establish a strong footprint and separate identity standardizing the scalability and commitment. Our proven skills and maturity is being relied and admired among our customers to obtain a level of satisfaction to tie up the bonding to move together.</p>\r\n\r\n<p>Since forming, BCLOS has designed and implemented solutions for companies in different parts of Bangladesh to deploy simple and complex service and solutions for various customers.</p>\r\n\r\n<p>Surfing among the latest technology and ideas, we believe we are capable to provide the best solutions making the customers intention as our main objectives. We like listen till we start to think like our customers and then we deploy our expertise to obtain the goal.</p>', NULL, '2022-10-01 11:14:47');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `banks` (
 --
 
 INSERT INTO `banks` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(12, 'abdur rahman kazi', 'banks/1664477579.jpg', '2022-09-29 12:52:59', '2022-09-29 12:52:59');
+(12, 'brack bank', 'banks/1664477579.jpg', '2022-09-29 12:52:59', '2022-10-01 10:06:51');
 
 -- --------------------------------------------------------
 
@@ -161,9 +161,9 @@ CREATE TABLE `corporate_internets` (
 --
 
 INSERT INTO `corporate_internets` (`id`, `name`, `icon_name`, `items`, `created_at`, `updated_at`) VALUES
-(2, 'abdur rahma', 'era', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-09-10 10:24:11'),
+(2, 'abdur rahma', 'fa-connectdevelop', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-10-01 10:56:05'),
 (3, 'Cloud IP-PBX', 'fa-connectdevelop', 'Enjoy free PBX system by connecting to our IP-PBX platform||Zero CapEx||Scalable depending on your staffing needs', '2022-09-10 10:53:24', '2022-09-10 10:53:24'),
-(4, 'abdur rahma', 'era', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-09-10 10:24:11'),
+(4, 'abdur rahma', 'fa-connectdevelop', '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbp', '2022-09-10 10:14:27', '2022-10-01 10:56:40'),
 (5, 'Cloud IP-PBX', 'fa-connectdevelop', 'Enjoy free PBX system by connecting to our IP-PBX platform||Zero CapEx||Scalable depending on your staffing needs', '2022-09-10 10:53:24', '2022-09-10 10:53:24');
 
 -- --------------------------------------------------------
@@ -257,7 +257,13 @@ CREATE TABLE `featureimages` (
 --
 
 INSERT INTO `featureimages` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'package', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40');
+(1, 'package', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(2, 'pay', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(3, 'coverage', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(4, 'corporateinternet', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(5, 'contacts', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(6, 'about', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(7, 'ip_phones', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40');
 
 -- --------------------------------------------------------
 
@@ -279,8 +285,8 @@ CREATE TABLE `ip_phones` (
 --
 
 INSERT INTO `ip_phones` (`id`, `name`, `image`, `items`, `created_at`, `updated_at`) VALUES
-(2, 'nick arname', 'banks/1663173292.png', 'gfhghf ghfgh||2 AM-8 PM - 20 Mbp||Enjoy free PBX system by connecting to our IP-PBX platform', '2022-09-14 10:34:52', '2022-09-14 10:41:24'),
-(3, 'abdur rahman kazi', 'banks/1663179982.jpg', '2 AM-8 PM - 20 Mbp||rrt||gfhghf ghfgh', '2022-09-14 12:26:22', '2022-09-14 12:26:22');
+(2, 'Feature of Amber IT IP Phone App:', 'banks/1664643965.png', 'Get 10 taka account balance doing NID card verification properly.||alk to any number 24 hours by 40 poisa per minute call rate. (15% VAT applicable)||Every second pulse.', '2022-09-14 10:34:52', '2022-10-01 11:07:24'),
+(3, 'Download Amber IT IP Phone app today to enjoy the best call rates in the country.', 'banks/1664644107.png', 'Talk to any local operator for 40 poisa per minute and one second pulse.||FREE calls to IP phone numbers, app-to-app video calls, audio calls, group chats and file sharing.||Get 10 taka bonus by registering with correct information', '2022-09-14 12:26:22', '2022-10-01 11:08:27');
 
 -- --------------------------------------------------------
 
@@ -341,7 +347,7 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `title`, `mb`, `tk`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'abdur rahman kazi', 20, 239, '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbps.', '2022-08-27 10:34:26', '2022-09-10 09:15:25');
+(1, 'Golden', 20, 239, '2 AM-8 PM - 20 Mbps.||rrt||2 AM-8 PM - 20 Mbps.', '2022-08-27 10:34:26', '2022-10-01 10:01:14');
 
 -- --------------------------------------------------------
 
@@ -356,13 +362,6 @@ CREATE TABLE `pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `pages`
---
-
-INSERT INTO `pages` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(2, 'md shrabon me', '<p>dszfasf tfhdfxh dasgfds i am a man</p>', '2022-09-19 10:43:35', '2022-09-20 02:45:54');
 
 -- --------------------------------------------------------
 
@@ -718,7 +717,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `featureimages`
 --
 ALTER TABLE `featureimages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ip_phones`

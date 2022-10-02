@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CorporateInternet;
+use App\Models\Featureimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,10 @@ class CorporateInternetController extends Controller
      */
     public function index(){
         $corporateinternets = CorporateInternet::all();
-        return view('admin.pages.corporate',['corporateinternets' => $corporateinternets]);
+        return view('admin.pages.corporate',[ 
+            'corporateinternets' => $corporateinternets,
+            'featureimage' => Featureimage::where('name', 'corporateinternet')->first()
+        ]);
         //return view('guest.package',compact('packages'));
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Featureimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,10 @@ class ContactController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        return view('admin.pages.contact',['contacts' => $contact]);
+        return view('admin.pages.contact',[ 
+            'contacts' => $contact,
+            'featureimage' => Featureimage::where('name', 'contacts')->first()
+        ]);
     }
 
     /**

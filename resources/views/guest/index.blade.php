@@ -37,7 +37,7 @@
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Lag Free Gaming</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Real IP Included</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Stable Connection With No Interruptions</p>
-          <button class="btn btn-outline-success mt-4">View all</button>
+          <a href="{{ route('guest.package') }}" class="btn btn-outline-success mt-4">View all</a>
         </div>
       </div>
       <div class="col-md-6 rightP">
@@ -55,7 +55,7 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="hovering">
-          <a href="#">
+          <a href="{{ route('guest.corporateinternet') }}">
             <img src="{{ asset('assets/logo/corporate.png') }}">
           </a>
         </div>
@@ -68,7 +68,7 @@
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Business-friendly SLAs</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>24×7 Support</p>
           <p class=""><span class="text-danger me-2"><i class="fa fa-check" aria-hidden="true"></i></span>Stable Flexible & Scalable Bandwidth</p>
-          <button class="btn btn-outline-danger mt-4">View all</button>
+          <a href="{{ route('guest.corporateinternet') }}" class="btn btn-outline-danger mt-4">View all</a>
         </div>
       </div>
     </div>

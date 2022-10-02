@@ -22,7 +22,7 @@
       return $(this).text();
     }).get();
     const iconName = data[0].replace(" ","-");
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<div class=" d-flex justify-content-center align-items-center"><i class="fa fa-${iconName}" style="font-size: 31px"></i><h2 class="mt-2 ps-2">${data[0]}</h2></div>`
     check +=`<x-input name="link" label="Social Link" inputvalue="${data[2]}" />`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`

@@ -35,4 +35,6 @@
       </div>
       <button class="btn btn-success" type="submit">Submit</button>
     </form>
+    <hr>
+    <x-admin.featureimage image="{{$featureimage->image}}" id="{{ $featureimage->id }}"/>
 </div>

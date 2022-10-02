@@ -23,7 +23,6 @@
                     <div class="card-body bg-light text-dark">
                        <p class="h3">Misson</p>
                        <p>{!! $about->mission !!}</p>
-                       <button class="btn btn-sm btn-outline-dark">Read More</button>
                     </div>
                </div>
            </div>
@@ -33,7 +32,6 @@
                     <div class="card-body bg-light text-dark">
                        <p class="h3">Vision</p>
                        <p>{!! $about->vision !!}</p>
-                       <button class="btn btn-sm btn-outline-dark">Read More</button>
                     </div>
                </div>
            </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Featureimage;
 use App\Models\Ip_phone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -17,7 +18,10 @@ class IpphoneController extends Controller
      */
     public function index(){
         $ipphones = Ip_phone::all();
-        return view('admin.pages.ipphone',['ipphones' => $ipphones]);
+        return view('admin.pages.ipphone',[
+            'ipphones' => $ipphones,
+            'featureimage' => Featureimage::where('name', 'ip_phones')->first()
+        ]);
         //return view('guest.package',compact('packages'));
     }
 
@@ -89,13 +93,12 @@ class IpphoneController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'image' => 'optional|mimes:jpeg,png,jpg,gif|max:1024'
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif|max:1024'
         ]);
         
         if($validator->fails()){
             return back()->with('fail',$validator->errors()->first());
         }
-
         $ipphone = Ip_phone::find($request->id);
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();

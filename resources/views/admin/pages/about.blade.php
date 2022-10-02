@@ -7,9 +7,6 @@
             @if ( Session::get('fail'))
             <x-alert type="error" message="In edit form, {{ Session::get('fail') }}"/>
           @endif
-          @if (Session::get('successed'))
-            <x-alert type="success" message="{{ Session::get('successed') }}"/>
-          @endif
             <form action="{{ route('about.update',['about' => 1]) }}" class="p-3 border border-3" method="post">
                 @csrf
                 {{ method_field('PUT') }}
@@ -28,6 +25,10 @@
                 </div>
                 <button class="btn btn-success" type="submit">Submit</button>
             </form>
+            <hr>
+            <div class="w-25 ms-auto">
+                <x-admin.featureimage image="{{$featureimage->image}}" id="{{ $featureimage->id }}"/>
+            </div>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Featureimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,10 @@ class AboutController extends Controller
     public function index()
     {
         $about = About::find(1);
-        return view('admin.pages.about',['about' => $about]);
+        return view('admin.pages.about',[ 
+            'about' => $about,
+            'featureimage' => Featureimage::where('name', 'about')->first()
+        ]);
     }
 
     /**
@@ -75,17 +79,17 @@ class AboutController extends Controller
         $request->validate([
             'name' => 'required',
             'mission' => 'nullable',
-            'vision' => 'nullable',
+            'vission' => 'nullable',
             'editor1' => 'required'
         ]);
         $about = About::find($id);
         $about->title = $request->name;
         $about->mission = $request->mission;
-        $about->vision = $request->vision;
+        $about->vision = $request->vission;
         $about->description = $request->editor1;
         
         if($about->save()){
-            return back()->with('successed','Data update successfull');
+            return back()->with('success','Data update successfull');
         }else{
             return back()->with('fail','query failed');
         }

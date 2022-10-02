@@ -4,7 +4,7 @@
     <h2 class="text-center bg-secondary p-3 w-50 mx-auto">Contact</h2>
     <div class="row">
         <div class="col-md-12">
-            <x-table 
+          <x-table 
             :th="['Name', 'Details']" 
             >
             @foreach ($contacts as $item)
@@ -21,6 +21,10 @@
                 </tr>   
             @endforeach
             </x-table>
+            <hr>
+            <div class="w-25 ms-auto">
+                <x-admin.featureimage image="{{$featureimage->image}}" id="{{ $featureimage->id }}"/>
+            </div>
         </div>
     </div>
 </div>

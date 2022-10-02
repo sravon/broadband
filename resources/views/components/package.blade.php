@@ -17,8 +17,5 @@
           @endforeach
         </div>
       </div>
-      <div class="card-footer text-muted">
-        <a href="#" class="btn btn-primary">Buy Now</a>
-      </div>
     </div>
 </div>

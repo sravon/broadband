@@ -40,7 +40,8 @@ function deleteData(id){
 }
 @endsection
 @section('jquery')
-  
+
+
   $('.editbtn').on('click',function(){
     $('#editmodal').modal('show');
     $tr = $(this).closest('tr');
@@ -49,10 +50,18 @@ function deleteData(id){
     var data = $tr.children("td").map(function () {
       return $(this).text();
     }).get();
+    var arr = @json($districts)
     
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<x-input name="name" label="Your Name" inputvalue="${data[0]}" />`
-    check +=`<x-input name="district" label="Your District" inputvalue="${data[1]}" />`
+
+    check +=`<x-formselect id="district" name="district" label="Your District">`
+      $.each( arr, function( key, value ) {
+        var a = (value.id == data[1]) ? 'selected' : '';  
+        check += `<option value="${value.id}" ${a}>${value.name}</option>`
+      });
+    check +=`</x-formselect>`
+
     check +=`<x-input name="address" label="Your Address" inputvalue="${data[3]}" />`
     check +=`<x-input name="phone" label="Your Phone" inputvalue="${data[4]}" />`
     check +=`<x-input name="code" label="Your Code" inputvalue="${data[2]}" />`

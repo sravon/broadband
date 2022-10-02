@@ -24,9 +24,9 @@
       return $(this).text();
     }).get();
     console.log(data)
-    let check =`<input type="text" name="id" value="${id}">`
+    let check =`<input type="hidden" name="id" value="${id}">`
     check +=`<x-input name="name" label="District Name" inputvalue="${data[0]}" />`
-    check +=`<img src="${host_url}/${image}" alt="banks">`
+    check +=`<img src="${host_url}/${image}" width="200" alt="banks">`
     check +=`<x-input name="image" label="Image Name" datatype="file" />`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
     $("#editdata").html(check);

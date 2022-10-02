@@ -33,7 +33,7 @@
         return $(this).text();
       }).get();
       console.log(data)
-      let check =`<input type="text" name="id" value="${id}">`
+      let check =`<input type="hidden" name="id" value="${id}">`
       check +=`<x-input name="title" label="Package Name" inputvalue="${data[0]}" />`
       check +=`<x-input name="mb" label="Internet Speed" inputvalue="${data[1]}" />`
       check +=`<x-input name="tk" label="Internet Price" inputvalue="${data[2]}" />`
