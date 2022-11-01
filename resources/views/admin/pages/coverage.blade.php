@@ -46,7 +46,8 @@ function deleteData(id){
     $('#editmodal').modal('show');
     $tr = $(this).closest('tr');
     let id = $(this).attr('id');
-    console.log(id);
+    var district_td = $(this).closest('td');
+    var district_id = $(district_td).data("districtid");
     var data = $tr.children("td").map(function () {
       return $(this).text();
     }).get();
@@ -57,7 +58,7 @@ function deleteData(id){
 
     check +=`<x-formselect id="district" name="district" label="Your District">`
       $.each( arr, function( key, value ) {
-        var a = (value.id == data[1]) ? 'selected' : '';  
+        var a = (value.id == district_id) ? 'selected' : '';  
         check += `<option value="${value.id}" ${a}>${value.name}</option>`
       });
     check +=`</x-formselect>`

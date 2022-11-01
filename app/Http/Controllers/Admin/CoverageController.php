@@ -7,12 +7,17 @@ use App\Models\Coverage;
 use App\Models\District;
 use App\Models\Featureimage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CoverageController extends Controller
 {
     public function index(){
-        $coverages = Coverage::all();
+        $coverages = DB::table('coverages')
+        ->join('districts', 'districts.id', '=', 'coverages.district_id')
+        ->select('coverages.*', 'districts.name as district_name')
+        ->get();
+        //$coverages = Coverage::all();
         $districts = District::all();
         return view('admin.pages.coverage',[
             'coverages' => $coverages,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccountInfo;
+use App\Models\Bank;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,10 @@ class AccountController extends Controller
     public function index()
     {
         $accounts = AccountInfo::all();
-        return view('admin.pages.accounts',['accounts' => $accounts]);
+        return view('admin.pages.accounts',[
+            'accounts' => $accounts,
+            'banks' => Bank::all()
+        ]);
     }
 
     /**

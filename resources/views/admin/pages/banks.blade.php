@@ -18,7 +18,7 @@
     $tr = $(this).closest('tr');
     var imag_td = $(this).closest('td');
     let id = $(this).attr('id');
-    let image = $(imag_td).data("image");;
+    let image = $(imag_td).data("image");
     console.log(image);
     var data = $tr.children("td").map(function () {
       return $(this).text();

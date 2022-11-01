@@ -12,7 +12,7 @@
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
         <td >{{ $item->name }}</td>
-        <td >{{ $item->image }}</td>
+        <td ><img width="50" src="{{ asset($item->image) }}" alt=""></td>
         <td >{{ $item->items }}</td>
         <td data-image="{{ $item->image }}">
           @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')

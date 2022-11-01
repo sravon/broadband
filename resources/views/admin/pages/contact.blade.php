@@ -44,7 +44,7 @@
         return $(this).text();
       }).get();
       console.log(data)
-      let check =`<input type="text" name="id" value="${id}">`
+      let check =`<input type="hidden" name="id" value="${id}">`
       check +=`<x-input name="name" label="Corporate Item Name" inputvalue="${data[0]}" />`
       check +=`<div class="mb-3" id="included"><div class="d-flex justify-content-around align-items-center"><h6 class="text-center text-dark fw-bold p-3">WHAT'S INCLUDED</h6><button type="button" id="addmore1" class="btn btn-success h-25">Add More</button></div>`
       var des = `${data[1]}`

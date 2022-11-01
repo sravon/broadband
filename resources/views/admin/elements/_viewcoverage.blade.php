@@ -13,11 +13,11 @@
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
           <td>{{ $item->name }}</td>
-          <td>{{ $item->district_id }}</td>
+          <td>{{ $item->district_name }}</td>
           <td>{{ $item->postcode }}</td>
           <td>{{ $item->address }}</td>
           <td>{{ $item->phone }}</td>
-          <td>
+          <td data-districtid="{{ $item->district_id }}">
             @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')
               <x-modal 
               type="editmodal" 
