@@ -23,7 +23,7 @@
     check +=`<x-input readonly="true" name="name" label="User Name" inputvalue="${data[0]}" />`
     check +=`<x-input readonly="true" name="email" label="Email name" inputvalue="${data[1]}" />`
     check +=`<x-input readonly="true" name="phone" label="Phone number" inputvalue="${data[3]}" />`
-    check +=`<x-formselect label="Select Role" id="role" name="role"><option value="admin">Admin</option><option value="subscriber">Subscriber</option><option value="editor">Editor</option></x-formselect>`
+    check +=`<x-formselect label="Select Role" id="role" name="role"><option value="admin">Admin</option><option value="subscriber">Subscriber</option><option value="editor">Editor</option><option value="guest">guest</option></x-formselect>`
     check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`
     $("#editdata").html(check);
   })

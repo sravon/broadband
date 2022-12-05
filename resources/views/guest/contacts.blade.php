@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 @endsection
 @section('main_content')
-<x-feature title="Conact" name="assets/logo/slide1.jpg" />
+<x-feature title="Conact" name="{{ $featureimage->image }}" />
 <section class="container-fluid mt-2">
     <div class="container">
         <div class="row">

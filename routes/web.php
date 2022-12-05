@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,9 @@ Route::get('/',[App\Http\Controllers\Guest\IndexController::class, 'index'])->na
 // Route::get('/auth/login',[AdminController::class, 'login'])->name('admin.login');
  ;
 Route::post('/auth/check',[AdminController::class, 'check'])->name('admin.check');
-Route::get('/package',[App\Http\Controllers\Guest\PackageController::class, 'viewData'])->name('guest.package');
-Route::get('/corporateinternet',[App\Http\Controllers\Guest\CorporateInternetController::class, 'index'])->name('guest.corporateinternet');
-Route::get('/coverage',[App\Http\Controllers\Guest\CoverageController::class, 'index'])->name('guest.coverage');
+Route::get('/service/package',[App\Http\Controllers\Guest\PackageController::class, 'viewData'])->name('guest.package');
+Route::get('/service/corporateinternet',[App\Http\Controllers\Guest\CorporateInternetController::class, 'index'])->name('guest.corporateinternet');
+Route::get('/service/coverage',[App\Http\Controllers\Guest\CoverageController::class, 'index'])->name('guest.coverage');
 Route::post('/coverage/ajax',[App\Http\Controllers\Guest\CoverageController::class, 'getAreaByCountry'])->name('guest.ajax.get-area-by-country-type');
 Route::get('/pay',[App\Http\Controllers\Guest\PayController::class, 'index'])->name('guest.pay');
 Route::get('/contacts',[App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contacts');
@@ -41,8 +42,13 @@ Route::get('/pages/{id}',[App\Http\Controllers\Guest\IndexController::class, 'pa
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/user/logout', [App\Http\Controllers\Auth\LoginController::class, 'userLogout'])->name('user.logout');
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'bcladminitrativepanel'], function() {
+	Route::get('/', function () {
+		if (Auth::check()) redirect()->route('admin.dashboard');
+		else return redirect()->route('admin.login');
+	});
 	Route::group(['middleware' => 'admin.guest'], function(){
+		
 		Route::view('/register','admin.auth.register')->name('admin.register');
 		Route::post('/save',[AdminController::class, 'postRegister'])->name('admin.save');
 		Route::get('/register-confirm',[AdminController::class, 'getConfirmRegister'])->name('admin.register.confirm');
@@ -83,6 +89,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::post('/profile/changepassword',[App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('profile.changepassword');
 		Route::resource('/pages',App\Http\Controllers\Admin\PageController::class);
 		Route::resource('/settings',App\Http\Controllers\Admin\SettingController::class);
+		Route::resource('/menus',App\Http\Controllers\Admin\MenuController::class);
 		Route::post('/updatefeatureimage/{id}',[App\Http\Controllers\Admin\SettingController::class,'updateFeatureImage'])->name('admin.updatefeatureimage');
 	});
 });

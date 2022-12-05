@@ -1,10 +1,11 @@
 @extends('layouts.admin-app')
 
 @section('content')
-    <div class="container">
-        <div class="w-50 mx-auto bg-danger p-2 mt-5">
-            <h2 class="text-center text-light">Register</h2>
-            <form action="{{ route('admin.save') }}" method="post">
+    <div class="container p-5" style="background: rgba(86, 175, 80, 0.3);">
+        <div class="w-50 mx-auto bg-danger p-3 mt-5" style="border-radius: 20px">
+            <h2 class="text-center text-success fw-bold">Admin Registration</h2>
+            <hr>
+            <form class="text-light" action="{{ route('admin.save') }}" method="post">
                 @csrf
                 @if (Session::get('success'))
                     <div class="alert alert-success">
@@ -68,9 +69,9 @@
                         <span class="text-light">@error('confirm_password'){{ $message }} @enderror</span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary pull-right">Register</button>
                 <br>
-                <a href="{{ route('admin.login') }}">Already have a account, sign in</a>
+                <a class="text-warning" href="{{ route('admin.login') }}">Already have a account, sign in</a>
             </form>
         </div>
     </div>

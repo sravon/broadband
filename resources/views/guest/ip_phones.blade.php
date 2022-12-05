@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('main_content')
-<x-feature title="Ip Phone" name="assets/logo/slide1.jpg" />
+<x-feature title="Ip Phone" name="{{ $featureimage->image }}" />
 <section class="container-fluid mt-2">
     <div class="container">
     @foreach ($ip_phones as $item)

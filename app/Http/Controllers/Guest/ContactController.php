@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Models\Contact;
+use App\Models\Featureimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -18,7 +19,10 @@ class ContactController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        return view('guest.contacts',['contacts' => $contact]);
+        return view('guest.contacts',[
+            'contacts' => $contact,
+            'featureimage' => Featureimage::where('name','contacts')->first()
+        ]);
     }
 
     /**

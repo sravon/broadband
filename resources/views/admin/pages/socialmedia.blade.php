@@ -30,7 +30,7 @@
   })
   $('#socialmedia').on('change', function() {
     var txt = $(this).val();
-    alert(txt)
+    
     $('#name').val(txt);
     $('#iconset').html(`<i class="fa fa-${txt}" style="font-size: 31px"></i>`);
   });

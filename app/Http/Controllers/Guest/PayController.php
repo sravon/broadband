@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
+use App\Models\Featureimage;
 use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,11 @@ class PayController extends Controller
         ->join('banks', 'banks.id', '=', 'account_infos.bank_id')
         ->select('account_infos.*', 'banks.name as bank_name', 'banks.image as bank_image')
         ->get();
-        return view('guest.pay',['pays' => Pay::all(), 'banks' => $banks]);
+        return view('guest.pay',[
+            'pays' => Pay::all(),
+             'banks' => $banks,
+             'featureimage' => Featureimage::where('name','pay')->first()
+            ]);
     }
 
     /**

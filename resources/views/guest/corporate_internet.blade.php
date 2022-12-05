@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('main_content')
-<x-feature title="Corporate Internet" name="assets/logo/slide1.jpg" />
+<x-feature title="Corporate Internet" name="{{ $featureimage->image }}" />
 <section class="container-fluid">
     <div class="m-2 p-2">
         <h6 class="text-center">Explore Our Corporate Internet Features</h6>

@@ -14,7 +14,7 @@
           <th scope="row">{{ $loop->iteration }}</th>
           <td>{{ $item->name }}</td>
           <td>{{ $item->email }}</td>
-          <td>{{ $item->role }}</td>
+          <td class="text-danger">{{ $item->role }}</td>
           <td>{{ $item->phone }}</td>
           <td>
           @if (Auth::user()->role === 'admin' || Auth::user()->role === 'editor')

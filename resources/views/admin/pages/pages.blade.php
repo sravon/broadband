@@ -15,5 +15,34 @@
     CKEDITOR.replace('editor1');
 @endsection
 
+@section('jquery')
+$('#linkservice').on('click', function() {
+    load_data($(this).attr("data-id"),0)
+})
+function load_data(page = null,subpage)
+{
+  var csrf_token = $('meta[name="_token"]').attr('content');
+  $.ajax({
+    type: "POST",
+    url: "{!! route('menus.store') !!}",
+    data: {page_id: page,subpage:0, _token: csrf_token},
+    success: function( data ) {
+      if(data){
+        SuccessSms("Linking success")
+        setTimeout(function(){window.location.reload(); }, 2000);
+        
+      }else{
+        ErrorSms()
+      };
+    }
+  });
+ }
+$('#country').on('change', function() {
+  var txt = $(this).val() + '_'+$(this).find(":selected").text();
+  load_data(txt);
+});
+
+@endsection
+
 
 

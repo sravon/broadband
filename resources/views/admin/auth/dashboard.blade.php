@@ -44,7 +44,7 @@
     <div class="col-md-4 mb-3">
         <div class="bg-secondary h-100 p-2">
             <div class="d-flex justify-content-between align-items-center p-2">
-                <i class="fa fa-ticket text-light" style="font-size: 30px"></i>
+                <i class="fa fa-user text-light" style="font-size: 30px"></i>
                 <h2 class="text-warning">Account List</h2>
             </div>
             <hr>
@@ -64,7 +64,7 @@
     <div class="col-md-4 mb-3">
         <div class="bg-secondary h-100 p-2">
             <div class="d-flex justify-content-between align-items-center p-2">
-                <i class="fa fa-codiepie text-light" style="font-size: 30px"></i>
+                <i class="fa fa-user text-light" style="font-size: 30px"></i>
                 <h2 class="text-warning">User List</h2>
             </div>
             <hr>
@@ -74,7 +74,7 @@
     <div class="col-md-4 mb-3">
         <div class="bg-secondary h-100 p-2">
             <div class="d-flex justify-content-between align-items-center p-2">
-                <i class="fa fa-ticket text-light" style="font-size: 30px"></i>
+                <i class="fa fa-contao text-light" style="font-size: 30px"></i>
                 <h2 class="text-warning">Contacts</h2>
             </div>
             <hr>
@@ -84,7 +84,7 @@
     <div class="col-md-4 mb-3">
         <div class="bg-secondary h-100 p-2">
             <div class="d-flex justify-content-between align-items-center p-2">
-                <i class="fa fa-codiepie text-light" style="font-size: 30px"></i>
+                <i class="fa fa-globe text-light" style="font-size: 30px"></i>
                 <h2 class="text-warning">Social Media</h2>
             </div>
             <hr>

@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('main_content')
-<x-feature title="About" name="assets/logo/slide1.jpg" />
+<x-feature title="About" name="{{ $featureimage->image }}" />
 <section class="container-fluid container mt-2">
     <div class="w-75 mx-auto bg-secondary p-5 text-light">
         <h3 class="text-center fw-bold">Welcome To {{ $commondata->setting->name }}</h3>

@@ -139,7 +139,7 @@ class UserController extends Controller
             $slider->gender = $request->gender;
             $slider->image = $filepath;
             if($slider->save()){
-                return back()->with('successed','Data update successfull');
+                return back()->with('success','Data update successfull');
             }else{
                 return back()->with('fail','query failed');
             }
@@ -153,8 +153,8 @@ class UserController extends Controller
     public function changePassword(Request $request){
         //return $request->input();
         $validator = Validator::make($request->all(),[
-            'currentpassword' => 'required',
-            'newpassword' => 'required|min:5|max:12',
+            'currentpassword' => 'required|max:60',
+            'newpassword' => 'required|min:5|max:60',
             'confirmpassword' => 'required|same:newpassword'
         ]);
         
@@ -167,7 +167,7 @@ class UserController extends Controller
             ->update([
                 'password' => Hash::make($request->newpassword)
             ]);
-            return back()->with('successed','password update successfull');
+            return back()->with('success','password update successfull');
         }else{
             return redirect()->back()
                 ->with('fail', 'Old Password Does Not Match');

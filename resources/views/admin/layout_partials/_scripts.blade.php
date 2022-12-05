@@ -27,6 +27,23 @@
         })
     }
 
+    function SuccessSms(sms){
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: sms,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+    function ErrorSms(){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+        })
+    }
+
     function deleteData(routing){
         Swal.fire({
             title: 'Are you sure?',

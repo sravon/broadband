@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('main_content')
 <section class="container-fluid" style="padding:0;max-height:200px;display:inline;opacity: 0.7;z-index:3">
-	<img src="{{ asset('assets/logo/chef.jpg') }}" style="width:100%;height: 200px;">
+	<img src="{{ asset('assets/feature/cover.jpg') }}" style="width:100%;height: 200px;">
 </section>
 
 <section class="container-fluid bg-transparent" style="z-index: 9">
@@ -113,7 +113,7 @@
 		check +=`<div><input class="p-2" type="radio" id="html" checked name="gender" value="m"><label class="p-2" for="html">Male</label>`
 		check +=`<input class="p-2" type="radio" id="css" name="gender" value="f"><label class="p-2" for="css">Female</label></div>`
 		
-		check +=`<img src="${host_url}/{{Auth::user()->image}}" alt="banks" width="100">`
+		check +=`<img src="${host_url}/{{Auth::user()->image}}" alt="image" width="100">`
 		check +=`<x-input name="image" datatype="file" label="Change profile image" />`
 		check +=`<x-input maxlengthv="11" name="phone" label="Your phone number" inputvalue="{{ Auth::user()->phone }}" />`
 		check +=`<button class="btn btn-primary" type="submit" name="submit">update</button>`

@@ -24,11 +24,6 @@
             @foreach ($commondata->socialmedia as $item)
               <a href="{{ $item->link }}" class="btn top_btn"><i class="fa fa-{{$item->icon}}"></i></a>
             @endforeach
-            
-            <button class="btn top_btn"><i class="fa fa-twitter"></i></button>
-            <button class="btn top_btn"><i class="fa fa-linkedin"></i></button>
-            <button class="btn top_btn"><i class="fa fa-google-plus"></i></button>
-            <button class="btn top_btn"><i class="fa fa-linkedin"></i></button>
           </div>
         </div>
       </div>
@@ -47,14 +42,21 @@
         <li class="nav-item px-2 {{ \Request::route()->getName() == 'guest.index'? 'activemenu' : '' }}">
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item {{ (request()->is('package')) ? 'activemenu' : '' }}">
-          <a class="nav-link" aria-current="page" href="{{ route('guest.package') }}">Home Internet</a>
-        </li>
-        <li class="nav-item {{ (request()->is('corporateinternet')) ? 'activemenu' : '' }}">
-          <a class="nav-link" href="{{ route('guest.corporateinternet') }}">Corporate Internet</a>
-        </li>
-        <li class="nav-item {{ (request()->is('ip_phones')) ? 'activemenu' : '' }}">
-          <a class="nav-link" href="{{ route('guest.ipphones') }}">Ip Phone</a>
+        <li class="nav-item dropdown {{ (request()->segment(1) =='service') ? 'activemenu' : '' }}"">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Service
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class=""><a class="nav-link text-dark" href="{{ route('guest.corporateinternet') }}">Corporate Internet</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="nav-link text-dark" href="{{ route('guest.package') }}">Package</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="nav-link text-dark" href="{{ route('guest.ipphones') }}">Ip Phone</a></li>
+            @foreach ($commondata->submenuofservice as $item)
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="nav-link text-dark" href="{{ url("/pages/{$item->pageid}") }}">{{ $item->name }}</a></li>
+            @endforeach
+          </ul>
         </li>
         <li class="nav-item {{ (request()->is('coverage')) ? 'activemenu' : '' }}">
           <a class="nav-link" href="{{ route('guest.coverage') }}">Coverage</a>
@@ -68,6 +70,11 @@
         <li class="nav-item {{ (request()->is('about')) ? 'activemenu' : '' }}">
           <a class="nav-link" href="{{ route('guest.about') }}">About</a>
         </li>
+        @foreach ($commondata->perentmenu as $item)
+          <li class="nav-item }}">
+            <a class="nav-link" href="{{ url("/pages/{$item->pageid}") }}">{{ $item->name }}</a>
+          </li>
+        @endforeach
       </ul>
     </div>
 </nav>

@@ -4,7 +4,7 @@
 @endsection
 
 @section('main_content')
-<x-feature title="pay" name="assets/logo/slide1.jpg" />
+<x-feature title="pay" name="{{ $featureimage->image }}" />
 <section class="container-fluid container mt-2">
     <div class="w-75 mx-auto">
         <div class="d-flex align-items-start">

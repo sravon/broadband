@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2022 at 07:50 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.26
+-- Generation Time: Dec 05, 2022 at 04:42 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chatting`
+-- Database: `broadband`
 --
 
 -- --------------------------------------------------------
@@ -79,7 +79,7 @@ CREATE TABLE `admins` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `role` enum('admin','editor','subscriber') COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'subscriber editor admin, subscriber, editor',
+  `role` enum('admin','editor','subscriber','guest') COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'subscriber,editor,admin,guest',
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -94,8 +94,9 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`, `phone`, `image`, `gender`) VALUES
-(18, 'misty akter', 'mistyakter89000@gmail.com', '2022-09-19 06:16:14', 'admin', '$2y$10$x..t5/QP/JFt2y8SuBPptOPpJQ35lba3E/1oQafqiOdPYC2QQIQga', '', '2022-09-19 06:15:14', '2022-09-19 06:16:14', '01722222222', NULL, 'f'),
-(19, 'md shrabon', 'kaziar42@gmail.com', '2022-09-19 06:27:29', 'admin', '$2y$10$hg7cqZxCyidrCgFpL5x8OeQL14TSTx9YJFB35XcZPh6ZVWIl3VwK.', '', '2022-09-19 06:27:18', '2022-09-20 02:56:54', '01715550341', NULL, 'm');
+(18, 'misty akter', 'misty@gmail.com', '2022-09-19 06:16:14', 'admin', '$2y$10$x..t5/QP/JFt2y8SuBPptOPpJQ35lba3E/1oQafqiOdPYC2QQIQga', '', '2022-09-19 06:15:14', '2022-09-19 06:16:14', '01722222222', NULL, 'f'),
+(19, 'md shrabon', 'kaziar42@gmail.com', '2022-09-19 06:27:29', 'admin', '$2y$10$hg7cqZxCyidrCgFpL5x8OeQL14TSTx9YJFB35XcZPh6ZVWIl3VwK.', '', '2022-09-19 06:27:18', '2022-12-01 11:51:05', '01715550341', 'sliders/1669917065.jpg', 'm'),
+(21, 'misty akter', 'mistyakter89000@gmail.com', '2022-12-04 10:26:38', 'guest', '$2y$10$LD/bLm13GDQpthOMe3iK3OAIBcwszjmz.4CKihjw8UN1Ypu2v6Hje', '', '2022-12-04 10:26:27', '2022-12-04 10:36:42', '01834920142', NULL, 'm');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,7 @@ CREATE TABLE `banks` (
 --
 
 INSERT INTO `banks` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(12, 'brack bank', 'banks/1664477579.jpg', '2022-09-29 12:52:59', '2022-10-01 10:06:51');
+(12, 'brack bank', 'banks/1670254301.jpg', '2022-09-29 12:52:59', '2022-12-05 09:31:43');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Call us', '096||09611123123', NULL, '2022-09-20 08:56:12'),
+(1, 'Call us', '01834920142', NULL, '2022-12-04 11:21:04'),
 (2, 'Email', 'kaziar42@gmail.com || arr@gmail.com', NULL, NULL),
 (3, 'Our Corporate Office', 'Amber IT Ltd. Navana Tower (7th Floor) || 45 Gulshan South C/A, Circle-1', NULL, NULL);
 
@@ -217,10 +218,7 @@ INSERT INTO `districts` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (7, 'Barishal', '2022-08-28 12:10:28', '2022-08-28 12:10:28'),
 (8, 'Rangpur', '2022-08-28 12:10:33', '2022-08-28 12:10:33'),
 (9, 'Mymensingh', '2022-08-28 12:10:36', '2022-08-28 12:10:36'),
-(11, 'pabna', '2022-09-20 12:45:38', '2022-09-20 12:47:55'),
-(12, 'abdur rahman kazi', '2022-09-20 12:52:34', '2022-09-20 12:52:34'),
-(13, 'md shrabon', '2022-09-20 12:52:41', '2022-09-20 12:52:41'),
-(14, 'Brand_name', '2022-09-20 12:52:46', '2022-09-20 12:52:46');
+(11, 'pabna', '2022-09-20 12:45:38', '2022-09-20 12:47:55');
 
 -- --------------------------------------------------------
 
@@ -257,12 +255,12 @@ CREATE TABLE `featureimages` (
 --
 
 INSERT INTO `featureimages` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'package', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
-(2, 'pay', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
-(3, 'coverage', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
-(4, 'corporateinternet', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
-(5, 'contacts', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
-(6, 'about', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40'),
+(1, 'package', 'assets/logo/1670074611jj-ying-8bghKxNU1j0-unsplash.jpg', NULL, '2022-12-03 07:36:51'),
+(2, 'pay', 'assets/logo/1670127938jj-ying-8bghKxNU1j0-unsplash.jpg', NULL, '2022-12-03 22:25:38'),
+(3, 'coverage', 'assets/logo/1670128533marc-olivier-jodoin-NqOInJ-ttqM-unsplash.jpg', NULL, '2022-12-03 22:35:33'),
+(4, 'corporateinternet', 'assets/logo/1670128317markus-spiske-iar-afB0QQw-unsplash.jpg', NULL, '2022-12-03 22:31:57'),
+(5, 'contacts', 'assets/logo/1670127949julian-hochgesang-psGV5KhidlY-unsplash.jpg', NULL, '2022-12-03 22:25:49'),
+(6, 'about', 'assets/logo/1670128267thom-holmes-RqASow2Y6Os-unsplash.jpg', NULL, '2022-12-03 22:31:07'),
 (7, 'ip_phones', 'assets/logo/1664542239cv1111.jpg', NULL, '2022-09-30 06:50:40');
 
 -- --------------------------------------------------------
@@ -287,6 +285,29 @@ CREATE TABLE `ip_phones` (
 INSERT INTO `ip_phones` (`id`, `name`, `image`, `items`, `created_at`, `updated_at`) VALUES
 (2, 'Feature of Amber IT IP Phone App:', 'banks/1664643965.png', 'Get 10 taka account balance doing NID card verification properly.||alk to any number 24 hours by 40 poisa per minute call rate. (15% VAT applicable)||Every second pulse.', '2022-09-14 10:34:52', '2022-10-01 11:07:24'),
 (3, 'Download Amber IT IP Phone app today to enjoy the best call rates in the country.', 'banks/1664644107.png', 'Talk to any local operator for 40 poisa per minute and one second pulse.||FREE calls to IP phone numbers, app-to-app video calls, audio calls, group chats and file sharing.||Get 10 taka bonus by registering with correct information', '2022-09-14 12:26:22', '2022-10-01 11:08:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `link_page_to_menus`
+--
+
+CREATE TABLE `link_page_to_menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `submenutype` int(11) NOT NULL DEFAULT 0,
+  `pageid` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `link_page_to_menus`
+--
+
+INSERT INTO `link_page_to_menus` (`id`, `submenutype`, `pageid`, `created_at`, `updated_at`) VALUES
+(6, 0, 3, '2022-12-02 13:35:52', '2022-12-02 13:35:52'),
+(7, 0, 6, '2022-12-02 13:45:24', '2022-12-02 13:45:24'),
+(8, 1, 7, '2022-12-03 07:15:59', '2022-12-03 07:15:59');
 
 -- --------------------------------------------------------
 
@@ -324,7 +345,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2022_09_17_125754_create_sliders_table', 10),
 (21, '2022_09_19_140911_create_pages_table', 11),
 (23, '2022_09_28_130101_create_settings_table', 12),
-(25, '2022_09_30_082601_create_featureimages_table', 13);
+(25, '2022_09_30_082601_create_featureimages_table', 13),
+(27, '2022_12_02_141613_create_link_page_to_menus_table', 14);
 
 -- --------------------------------------------------------
 
@@ -362,6 +384,15 @@ CREATE TABLE `pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(3, 'Customized Network Management', '<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Customized Network Management</strong></p>\r\n\r\n<p>BCLOS&rsquo;s flexible network expertise and understanding embraces small office configurations, multiple-sites, or corporate networks.</p>\r\n\r\n<p>We manage the optimization of your network significantly reducing the risk associated with unscheduled outages or loss of data.</p>\r\n\r\n<p>Our experienced technical team realizes the financial impact facing your business should you experience a network failure. Their ability to quickly diagnose the problem minimizes the effect on your business.</p>\r\n\r\n<p>Individually tailored maintenance programs are available to manage your system remotely with our support. Latest technology instantly alerts us to a client&rsquo;s network or server issue enabling our 24-hour team to respond quickly and resolve any problems.</p>\r\n\r\n<p>Call us Now and speak with one of our solution designers to discuss your options.</p>', '2022-12-02 07:48:08', '2022-12-02 07:48:08'),
+(6, 'Super Control over Internet and Intranet Content', '<p>Content Control keeps your kids or any other persons away from undesirable website.</p>\r\n\r\n<p>Content control in corporate environment would prevent your good employees doing from bad things. Would improved the working condition and overall productivity.</p>\r\n\r\n<p>Features:</p>\r\n\r\n<ul>\r\n	<li>Blocking of file sharing programs and sites</li>\r\n	<li>Undesirable sites</li>\r\n	<li>Adult-content filtering</li>\r\n	<li>Limit use of the Internet for the day and the week</li>\r\n	<li>Set time limits for categories of websites, such as videos and online games</li>\r\n	<li>Log computer activity to let you later review each user&rsquo;s activities</li>\r\n	<li>Send log files to any email address</li>\r\n</ul>', '2022-12-02 13:45:24', '2022-12-02 13:45:24'),
+(7, 'Tasks and Periphery', '<p>BCLOS is one of the deciders of the market trend for managed services, dictates over network integration, opens new era in optimization and Visualization solutions.</p>\r\n\r\n<p>Delivering scalable and innovative enterprise solutions and services is our first goal to obtain through the best possible combination of existing client resources and minimum level of shift from the main track.</p>\r\n\r\n<p>Believing in the power of &ldquo;WE&rdquo;, team spirit and bonding together with the clients in our milestone.</p>\r\n\r\n<p>Analyzing CAPEX and OPEX, we try to analyze SWOT of our customers while formulating the best solution.</p>\r\n\r\n<p>So regardless of your size or the scale or complexity of your business requirement we are confident of architecting and delivering a solution that suits best for you.</p>', '2022-12-03 07:15:59', '2022-12-03 07:15:59');
 
 -- --------------------------------------------------------
 
@@ -469,8 +500,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
-(2, 'sliders/1663423477.jpg', '2022-09-17 08:04:37', '2022-09-17 08:04:37'),
-(3, 'sliders/1663425442.jpg', '2022-09-17 08:37:22', '2022-09-17 08:37:22');
+(2, 'sliders/1670253202.jpg', '2022-09-17 08:04:37', '2022-12-05 09:13:24'),
+(3, 'sliders/1670253102.jpg', '2022-09-17 08:37:22', '2022-12-05 09:11:42');
 
 -- --------------------------------------------------------
 
@@ -492,7 +523,7 @@ CREATE TABLE `social_media` (
 --
 
 INSERT INTO `social_media` (`id`, `name`, `icon`, `link`, `created_at`, `updated_at`) VALUES
-(2, 'facebook official', 'facebook-official', 'http://127.0.0.1:8000/admin/social_media', '2022-09-16 09:35:18', '2022-09-16 09:35:18');
+(2, 'facebook official', 'facebook-official', 'http://127.0.0.1:8000/social_media', '2022-09-16 09:35:18', '2022-12-04 11:19:49');
 
 -- --------------------------------------------------------
 
@@ -593,6 +624,12 @@ ALTER TABLE `ip_phones`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `link_page_to_menus`
+--
+ALTER TABLE `link_page_to_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -675,7 +712,7 @@ ALTER TABLE `account_infos`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `banks`
@@ -726,10 +763,16 @@ ALTER TABLE `ip_phones`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `link_page_to_menus`
+--
+ALTER TABLE `link_page_to_menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `packages`
@@ -741,7 +784,7 @@ ALTER TABLE `packages`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pays`
@@ -765,7 +808,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `social_media`

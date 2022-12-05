@@ -77,6 +77,10 @@ class AdminController extends Controller
             }
             return redirect()->back()->withInput()->with(['fail' => 'Your email was not verified. We sent a verification mail to your email.']);
         }
+
+        if ($user->role == 'guest') {
+            return back()->with('fail','Please contact admin to approve your request');
+        }
         
         $login_credentials = [
             'email' => $request->email,
@@ -115,7 +119,7 @@ class AdminController extends Controller
             if(Admin::all()->count() == 0 ){
                 $user->role = 'admin';
             }else{
-                $user->role = 'subscriber';
+                $user->role = 'guest';
             };
             $user->remember_token = Str::random(30);
             $user->created_at = Carbon::now();

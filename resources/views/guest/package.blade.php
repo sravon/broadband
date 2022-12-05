@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 @endsection
 @section('main_content')
-<x-feature title="package" name="assets/logo/slide1.jpg" />
+<x-feature title="package" name="{{ $featureimage->image }}" />
 <section class="container-fluid">
     <div class="bg-secondary m-2 p-2">
         <h2 class="text-center">Our Packages</h2>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\LinkPageToMenu;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index(Request $req){
+    
         if($req->source && $req->source == 'edit' && $req->id){
             $singlevalue = Page::find($req->id);
         }else{
@@ -16,7 +18,8 @@ class PageController extends Controller
         }
         return view('admin.pages.pages',[
             'pages' => Page::all(),
-            'singlevalue' => $singlevalue
+            'singlevalue' => $singlevalue,
+            'alreadylinkpageid' => LinkPageToMenu::where('submenutype',0)->get()
         ]);;
     }
 
@@ -31,7 +34,13 @@ class PageController extends Controller
         $page->description = $request->editor1;
         
         if($page->save()){
-            return back()->with('successed','New page added Success');
+            $linkmenu = new LinkPageToMenu();
+            $linkmenu->submenutype = 1;
+            $linkmenu->pageid = $page->id;
+            if($linkmenu->save()) {
+                return back()->with('successed','New page added Success');
+            };
+            
         }else{
             return back()->with('fail','Something went to wrong,try again later');
         }
